@@ -1,0 +1,20 @@
+# id 17669 ([Commerci Republic] Barricaded 2), field 865030300
+sm.setSpeakerID(9390237) # Claire Tremier
+sm.setParam(2)
+sm.sendNext("Let's return to San Commerci.")
+sm.setParam(0)
+sm.sendSay("Yes, we should... wait. I sense something... ")
+sm.setParam(2)
+sm.sendSay("What do you mean?")
+sm.setParam(0)
+sm.sendSay("There's an ominous presence nearby...")
+sm.setParam(4)
+sm.setInnerOverrideSpeakerTemplateID(9390202) # Leon Daniella
+res = sm.sendAskYesNo("If Claire says she feels ominous, we have GOT to check it out. ")
+sm.startQuest(parentID)
+sm.setParam(2)
+sm.sendNext("Okay... Claire, where do we go?")
+sm.setParam(0)
+sm.sendSay("It's nearby. It's been there from the start, but I thought it was the assassins at first.")
+sm.setParam(2)
+sm.sendSay("Then we'd better look around.")

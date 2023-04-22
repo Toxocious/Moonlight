@@ -1,0 +1,16 @@
+# id 34903 (From the Abyss), field 402000644
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(3001500) # Ark
+sm.sendNext("#face0#I can feel a specter's power coursing through me ... I'm confused")
+sm.sendNext("#face0#This power was the price for taking a peek at the forbidden area. The Origin, has something to do with that ritual...")
+sm.sendNext("#face0#Am I special because Albert interrupted the ritual?")
+sm.sendNext("#face0#No... I don't know. The only one who can answer this question is that Specter, at least for now. I don't want to, but I'll have to wait until we meet again.")
+sm.startQuest(parentID)
+sm.completeQuestNoCheck(parentID)
+sm.setJob(15511)
+sm.addMaxHP(350)
+sm.addMaxMP(200)
+sm.addAP(5)
+sm.addSP(5)

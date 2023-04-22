@@ -1,0 +1,35 @@
+# id 867202682 (Abrup Basin : Windsleep Forest Junction), field 867202682
+sm.lockInGameUI(True, False)
+sm.spawnNpc(9400590, 400, 120)
+sm.showNpcSpecialActionByTemplateId(9400590, "summon", 0)
+sm.spawnNpc(9400597, 500, 120)
+sm.showNpcSpecialActionByTemplateId(9400597, "summon", 0)
+sm.setSpeakerType(3)
+sm.setParam(57)
+sm.setColor(1)
+sm.sendNext("#bWhew... Impressive, Chief Gurnardson! ")
+sm.setParam(37)
+sm.setInnerOverrideSpeakerTemplateID(9400597) # Gurnardson
+sm.sendSay("#face0#Hah, it was nothing! ")
+sm.sendSay("#face0#I'd say we've earned our place here, wouldn't you? ")
+sm.setInnerOverrideSpeakerTemplateID(9400590) # Slaka
+sm.sendSay("#face1#...")
+sm.setInnerOverrideSpeakerTemplateID(9400597) # Gurnardson
+sm.sendSay("#face0#Ahem! Now we know who's really weighing us down, you might say! ")
+sm.sendSay("#face0#Hmph! Put your money where your mouth is, eh! ")
+sm.setInnerOverrideSpeakerTemplateID(9400590) # Slaka
+sm.sendSay("#face1#...You're not going to tell the villagers, are you? ")
+sm.setInnerOverrideSpeakerTemplateID(9400597) # Gurnardson
+sm.sendSay("#face0#So you ARE ashamed of turning tail, aren't you? ")
+sm.setParam(57)
+sm.sendSay("#bI'm just glad everyone is safe. ")
+sm.sendSay("#bAnyway, we need to warn everyone about the Fembris. ")
+sm.sendSay("#bWe need to hurry back!")
+sm.lockInGameUI(False, True)
+sm.setParam(37)
+sm.sendSay("#face0#Hah, I haven't laughed like that in a long time. Feels good! ")
+sm.playExclSoundWithDownBGM("Field.img/masteryBook/EnchantSuccess", 100)
+sm.sendSay("#face0#You saw the look on Slaka's face too, right? Oh, that was rich! That should teach him to mouth off! Ha ha ha.")
+sm.sendSay("#face0#It's all thanks to you and Gillie! I never really thought I could be a warrior like this.")
+sm.completeQuestNoCheck(64123)
+sm.warp(867202308)

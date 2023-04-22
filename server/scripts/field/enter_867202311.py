@@ -1,0 +1,10 @@
+# id 867202311 (Abrup Basin : Skuas), field 867202311
+sm.showNpcSpecialActionByTemplateId(9400570, "summon", 0)
+sm.showNpcSpecialActionByTemplateId(9400606, "summon", 0)
+sm.showNpcSpecialActionByTemplateId(9400605, "summon", 0)
+sm.showNpcSpecialActionByTemplateId(9400638, "summon", 0)
+sm.showNpcSpecialActionByTemplateId(9400639, "summon", 0)
+sm.showNpcSpecialActionByTemplateId(9400640, "summon", 0)
+sm.startQuest(64169)
+sm.moveNpcByTemplateId(9400606, True, 250, 50)
+sm.moveNpcByTemplateId(9400605, True, 250, 50)

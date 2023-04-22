@@ -1,0 +1,16 @@
+# id 34467 ([Arcana] Reviving the Bramble Harp 1), field 940200216
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(3003301) # Small Spirit
+sm.sendNext("#face1#You gathered the Deathcries! Let's smash them over on this side of the tree...")
+sm.completeQuestNoCheck(parentID)
+sm.lockInGameUI(True, False)
+sm.removeAdditionalEffect()
+sm.sendDelay(600)
+sm.playExclSoundWithDownBGM("Mob.img/8644005/Die", 100)
+sm.sendDelay(1500)
+sm.sendNext("#face6#....")
+sm.sendDelay(1000)
+sm.sendNext("#face6#It didn't work. #b(Sighs)#k\r\nIt looks like the noise wasn't loud enough.")
+sm.lockInGameUI(False, True)

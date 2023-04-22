@@ -1,0 +1,21 @@
+# id 17645 ([Commerci Republic] Close Up with Captain Blood), field 865010001
+sm.setSpeakerID(9390209) # Captain Blood
+sm.sendNext("Ugh! He's pretty strong. Ha, I'm impressed!")
+sm.setParam(2)
+sm.sendSay("Yeah, no kidding. These guys are serious.")
+sm.setParam(0)
+sm.sendSay("Yar, but this brawl be far from over, matey.")
+sm.setParam(2)
+sm.sendSay("Oh, what now? Spoiler alert, you're not going to win.")
+sm.setParam(4)
+sm.setInnerOverrideSpeakerTemplateID(9390235) # Leon Daniella
+sm.sendSay("Yeah, spoiler! You're dumb!")
+sm.setParam(0)
+sm.sendSay("...Do ye know how I got me captain's hat?")
+sm.setParam(2)
+sm.sendSay("...You're not wearing a hat.")
+sm.setParam(0)
+sm.sendSay("Yar, it be a metaphor! Anyway, was it me clever tactics? Me sharp eye for shootin'? Nay, it be...")
+sm.sendSay("Me lightnin'-quick wits! Har har har!")
+sm.completeQuestNoCheck(parentID)
+sm.createQuestWithQRValue(18418, "B=33271")

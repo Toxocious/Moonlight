@@ -1,0 +1,11 @@
+# id 34474 ([Arcana] Wock Spiwit Wescue), field 450005400
+sm.startQuest(parentID)
+sm.startQuest(34480)
+sm.startQuest(34481)
+sm.startQuest(34482)
+sm.startQuest(34483)
+sm.startQuest(34484)
+sm.startQuest(34485)
+sm.startQuest(34486)
+sm.createQuestWithQRValue(parentID, "fin=0")
+sm.warp(940200250)

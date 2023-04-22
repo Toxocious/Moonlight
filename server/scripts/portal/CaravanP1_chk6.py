@@ -1,0 +1,10 @@
+# id 6 (CaravanP1_chk6), field 867200500
+sm.createQuestWithQRValue(64006, "WC=2;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk5;Ec=6;weather=3;max=16;food=250")
+sm.createQuestWithQRValue(64006, "WC=3;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk5;Ec=6;weather=3;max=16;food=250")
+sm.createQuestWithQRValue(64006, "WC=3;k1=0;speed=20;man=200;prog=0;Pt=Caravan_chk6;Ec=6;weather=3;max=16;food=250")
+sm.createQuestWithQRValue(64006, "WC=3;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk6;Ec=6;weather=3;max=16;food=250")
+sm.setSpeakerType(3)
+sm.setParam(35)
+sm.setColor(1)
+sm.sendNext("Go to #m867200621#.")
+sm.warp(867200621)

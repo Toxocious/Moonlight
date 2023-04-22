@@ -1,0 +1,5 @@
+sm.lockInGameUI(True)
+sm.spawnNpc(1096012, -51, -97)
+sm.showNpcSpecialActionByTemplateId(1096012, "summon", 0)
+sm.forcedInput(0)
+sm.forcedInput(2)

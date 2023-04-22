@@ -1,0 +1,118 @@
+# Classified Lab : Prison ; Xenon Intro Claudine Interrogation, InGameDirectionResponse Event
+
+import time
+
+ROO_D_PEACEFUL = 2159380
+ROO_D_AGGRESIVE = 2159381
+CLAUDINE_ARM_SLING = 2159384
+
+sm.removeEscapeButton()
+sm.forcedInput(0)
+
+sm.setSpeakerID(ROO_D_PEACEFUL)
+sm.sendNext("#h #, #h #! What brings you here?")
+sm.setPlayerAsSpeaker()
+sm.sendSay("Roo-D, I must ask that prisoner a question. I need you to keep this a secret, okay?")
+sm.setSpeakerID(ROO_D_PEACEFUL)
+sm.sendSay("You WERE acting funny when you saw her earlier. Do you... remember anything? Maybe something from your past?")
+sm.setPlayerAsSpeaker()
+sm.sendSay("What are you talking about? Roo-D, what do you know about my past?")
+sm.setSpeakerID(ROO_D_PEACEFUL)
+sm.sendSay("Ummm... take this for now.")
+# TODO: -> show picture of sheathed dagger, figure this out when GMS comes back up
+
+sm.sendNext("She had this on her when we put her in the cell. I think it's an important clue to finding out who you are. You should go talk to her. I'll keep an eye out for Gelimer.")
+sm.moveNpcByTemplateId(ROO_D_PEACEFUL, False, 600, 100)
+sm.sendDelay(2000)
+timeUntilHide = time.time() + 6
+sm.invokeAfterDelay(6000, "hideNpcByTemplateId", ROO_D_PEACEFUL, True, True)
+sm.setPlayerAsSpeaker()
+sm.sendNext("Thanks Roo-D.")
+sm.forcedInput(2)
+sm.sendDelay(1650)
+sm.forcedInput(0)
+if time.time() < timeUntilHide:
+    sm.sendDelay(int((timeUntilHide - time.time())*1000))
+sm.sendNext("Excuse me... I have something to ask you.")
+sm.showBalloonMsgOnNpc("Effect/Direction12.img/effect/tuto/BalloonMsg1/2/0", 2000, CLAUDINE_ARM_SLING)
+sm.sendDelay(2000)
+
+sm.setSpeakerID(CLAUDINE_ARM_SLING)
+sm.sendNext("I'm not talking, you Black Wings scum!")
+sm.setPlayerAsSpeaker()
+sm.sendSay("(This sensation is familiar, yet distant. I am sure I have met this woman before.)")
+sm.sendSay("(And this dagger... Have I held it before?)")
+sm.sendSay("Umm, here.")
+# TODO: -> show same picture of sheathed dagger ->, figure this out when GMS comes back up
+sm.showBalloonMsgOnNpc("Effect/Direction12.img/effect/tuto/BalloonMsg1/1", 2000, CLAUDINE_ARM_SLING)
+sm.sendDelay(2000)
+
+sm.setSpeakerID(CLAUDINE_ARM_SLING)
+sm.sendNext("My dagger!")
+sm.setPlayerAsSpeaker()
+sm.sendSay("Tell me about this weapon. Does it hold special powers? Where did you get it?")
+sm.setSpeakerID(CLAUDINE_ARM_SLING)
+sm.sendSay("Why do you want to know, Black Wing?")
+sm.setPlayerAsSpeaker()
+sm.sendSay("This item has caused a strange fluctuation in my memory circuits. Roo-D tells me it may have something to do with my past.")
+sm.setSpeakerID(CLAUDINE_ARM_SLING)
+sm.sendSay("What? I don't understand...")
+sm.showBalloonMsgOnNpc("Effect/Direction12.img/effect/tuto/BalloonMsg1/1", 2000, CLAUDINE_ARM_SLING)
+sm.sendDelay(2000)
+sm.sendNext("Wait, you said you recognize this dagger? Could you be...")
+
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendSay("#h #, #h #!")
+
+sm.hideNpcByTemplateId(ROO_D_PEACEFUL, False, False)
+sm.moveNpcByTemplateId(ROO_D_PEACEFUL, True, 300, 100)
+
+sm.sendSay("Gelimer is coming back! Did she tell you anything?")
+sm.setPlayerAsSpeaker()
+sm.sendSay("No, nothing. And the... glitch earlier will not return to my mind.")
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendSay("Too bad... I was hoping that would trigger your memory.")
+sm.setPlayerAsSpeaker()
+sm.sendSay("My memory? What are you talking about Roo-D?")
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendSay("No time to explain now, #h #. This might be your last chance. You need to join this lady and get out of here! Otherwise, Gelimer's going to erase what's left of your memory.")
+sm.setPlayerAsSpeaker()
+sm.sendSay("He would erase my memory?")
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendSay("Look, I know you're confused, but I made a promise to keep you safe!")
+sm.setPlayerAsSpeaker()
+sm.sendSay("Promise? With who?")
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendSay("With you...")
+sm.showBalloonMsg("Effect/Direction12.img/effect/tuto/BalloonMsg1/1", 2000)
+sm.showBalloonMsgOnNpc("Effect/Direction12.img/effect/tuto/BalloonMsg1/1", 2000, CLAUDINE_ARM_SLING)
+sm.sendDelay(2000)
+
+sm.sendNext("Look, you came to me, before Gelimer took your memories. You wanted to leave! I know you don't remember that now, but you have to trust me.")
+sm.sendSay("I've acted like Gelimer's loyal underling for a long time now, but today is our chance.")
+sm.sendSay("I'm sure this lady is from your past. I could see it in your eyes.")
+sm.sendSay("You have to get out of here, before you lost what little memory you have left.")
+sm.setPlayerAsSpeaker()
+sm.sendSay("That flash before... was that a memory of my past?")
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendSay("I don't know, but you don't have time to think about it now. Gelimer is coming back here now, and when he gets here, he'll wipe your memory and hurt that woman. You need to thing about what you want...")
+sm.setPlayerAsSpeaker()
+sm.sendSay("I want to find my memories again.")
+sm.sendSay("I don't even know why, but I know I want to protect her.")
+sm.showBalloonMsgOnNpc("Effect/Direction12.img/effect/tuto/BalloonMsg0/0", 2000, CLAUDINE_ARM_SLING)
+sm.sendDelay(2000)
+
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendNext("That's a good enough reason. Get out of here. I'll clean things up.")
+sm.setPlayerAsSpeaker()
+sm.sendSay("Roo-D, you should come with me. If Gelimer finds out you helped...")
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendSay("I'm not built for combat. I'd only slow you down.")
+sm.setPlayerAsSpeaker()
+sm.sendSay("That's exactly why I can't leave you here by yourself. You're coming.")
+sm.setSpeakerID(ROO_D_AGGRESIVE)
+sm.sendSay("...Fine, but we have to leave now!")
+
+sm.removeNpc(ROO_D_PEACEFUL)
+sm.lockInGameUI(False)
+sm.warpInstanceIn(931050970)

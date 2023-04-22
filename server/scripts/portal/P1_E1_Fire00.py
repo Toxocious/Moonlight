@@ -1,0 +1,10 @@
+# id 7 (E1_Fire00), field 867236100
+sm.createQuestWithQRValue(64272, "25=1;26=1;27=1;0=4;2=2")
+sm.createQuestWithQRValue(16119, "")
+sm.createQuestWithQRValue(16150, "")
+sm.createQuestWithQRValue(64272, "25=1;26=2;27=1;0=4;2=2")
+sm.createQuestWithQRValue(64272, "25=1;26=2;27=2;0=4;2=2")
+sm.createQuestWithQRValue(64272, "25=1;26=3;27=2;0=4;2=2")
+sm.createQuestWithQRValue(64272, "25=1;26=3;27=3;0=4;2=2")
+sm.createQuestWithQRValue(64272, "25=1;26=4;27=3;0=4;2=2")
+sm.createQuestWithQRValue(64272, "25=1;26=4;27=4;0=4;2=2")

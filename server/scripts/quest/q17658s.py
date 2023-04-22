@@ -1,0 +1,15 @@
+# id 17658 ([Commerci Republic] Claire's Story), field 865030000
+sm.setSpeakerID(9390205) # Claire Tremier
+sm.setParam(32)
+sm.setColor(1)
+sm.sendNext("You don't get to tell me when to talk. You should be thanking me for saving your worthless life.")
+sm.setParam(56)
+sm.sendSay("Of course I'm thankful for that... but it doesn't make you trustworthy. You could just be protecting us for some bigger scheme.")
+sm.setParam(32)
+res = sm.sendAskYesNo("Fine, hold on to your mistrust like a child with a blanket, but listen to me.")
+sm.startQuest(parentID)
+sm.sendNext("As I was trying to tell you, I am Vaughn Tremier's daughter, and sole heiress to the Tremier Merchant Union. I am his only daughter, and my mother passed away when I was born, so he's a bit protective of me.")
+sm.setParam(56)
+sm.sendSay("Then why are you sneaking around town?")
+sm.setParam(32)
+sm.sendSay("That SHOULD be obvious... ")

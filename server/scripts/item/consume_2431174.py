@@ -1,0 +1,5 @@
+rand = 1 + sm.getRandomIntBelow(100)
+sm.getChr().addHonorExp(rand)
+sm.consumeItem(2431174)
+sm.chat("You have gained "+str(rand)+" honor experience.")
+sm.dispose()

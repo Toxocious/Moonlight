@@ -1,0 +1,1 @@
+sm.teleportInField(0, 0)

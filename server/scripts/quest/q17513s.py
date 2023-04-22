@@ -1,0 +1,10 @@
+# id 17513 ([Tynerum]Hey, Hey, Jay-Jay), field 863000016
+sm.setSpeakerType(3)
+sm.setParam(17)
+sm.sendNext("It's a dead end. There's nowhere to go...")
+sm.sendSay("Who knows what's beyond that illusion...")
+sm.setParam(16)
+res = sm.sendAskYesNo("Better go talk to #b#p2134008##d for now.\r\n(Click Yes to teleport.)")
+sm.startQuest(parentID)
+sm.startQuest(17420)
+sm.warp(863100005)

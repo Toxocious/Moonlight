@@ -1,0 +1,22 @@
+# Hidden Street : Before the Final Battle (927020080)
+
+if sm.sendAskAccept("Would you like to skip the introduction?"):
+    sm.levelUntil(10)
+    sm.setSTR(4)
+    sm.setDEX(4)
+    sm.setAP(45)
+    sm.addMaxHP(50)
+    sm.warp(101000000)
+    sm.jobAdvance(2700)
+    sm.giveSkill(27001100)
+    sm.giveSkill(27001201)
+    sm.giveSkill(27000106)
+    sm.giveSkill(27000207)
+    sm.dispose()
+sm.lockInGameUI(True)
+sm.forcedInput(0)
+sm.reservedEffect("Effect/Direction8.img/lightningTutorial/Scene0")
+sm.sendDelay(3300)
+
+sm.lockInGameUI(False)
+sm.warp(927020000, 0)

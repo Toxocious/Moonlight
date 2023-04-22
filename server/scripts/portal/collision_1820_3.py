@@ -1,0 +1,18 @@
+# id 5 (coll03), field 867201820
+sm.lockInGameUI(True, False)
+sm.createQuestWithQRValue(64088, "coll1=1;coll2=1;coll3=1")
+sm.setSpeakerType(3)
+sm.setParam(57)
+sm.setColor(1)
+sm.sendNext("#bAlika, do what I did! Jump on that!")
+sm.moveNpcByTemplateId(9400580, True, 50, 100)
+sm.sendDelay(500)
+sm.setMapTaggedObjectVisible("alika01", True, 1, 0)
+sm.sendDelay(2000)
+sm.setMapTaggedObjectVisible("alika01", False, 0, 0)
+sm.setParam(37)
+sm.setInnerOverrideSpeakerTemplateID(9400580) # Alika
+sm.sendNext("#face3#Haaaaa! ")
+sm.setParam(57)
+sm.sendSay("#bGood job! ")
+sm.lockInGameUI(False, True)

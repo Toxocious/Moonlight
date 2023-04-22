@@ -1,0 +1,72 @@
+switch ( nType )
+      {
+        case 1113:
+          CField::OnRankCreate(this - 2, iPacket);
+          break;
+        case 1114:
+          CFieldRankSystem::OnSetUserName(this - 2, iPacket);
+          break;
+        case 1115:
+          CFieldRankSystem::OnNotifyData(this - 2, iPacket);
+          break;
+        case 1155:
+          CField::OnFieldFadeObjectInfo(this - 2, iPacket);
+          break;
+        case 1156:
+          CRuneStoneMgrForClient::OnRuneStoneClearAndAllRegister(0, iPacket);
+          break;
+        case 1157:
+          CRuneStoneMgrForClient::OnRuneStoneDisappear(0, iPacket);
+          break;
+        case 1158:
+          CRuneStoneMgrForClient::OnRuneStoneAppear(0, iPacket);
+          break;
+        case 1160:
+          CField::OnStarPlanetScreenWorldEvent(this - 2, a2, iPacket);
+          break;
+        case 1161:
+          CField::OnFieldStateCreate(this - 2, iPacket);
+          break;
+        case 1162:
+          CField::OnFieldStateRemove(this - 2, iPacket);
+          break;
+        case 1163:
+          CField::OnChaserMove(this - 2, iPacket);
+          break;
+        case 1207:
+          CField::OnHorntailTimer(iPacket);
+          break;
+        case 1211:
+          CField::OnZakumTimer(iPacket);
+          break;
+        case 1280:
+          CField::OnZakumTimer1(iPacket);
+          break;
+        case 1308:
+          CTrunkDlg::OnPacket(iPacket);
+          break;
+        case 1311:
+          CRPSGameDlg::OnPacket(iPacket);
+          break;
+        case 1312:
+          CGoStopRPSGameDlg::OnPacket(iPacket);
+          break;
+        case 1313:
+          CStarPlanetGoStopRPSGameDlg::OnPacket(iPacket);
+          break;
+        case 1314:
+          CUIMessenger::OnPacket(iPacket);
+          break;
+        case 1315:
+          CMiniRoomBaseDlg::OnPacketBase(iPacket);
+          break;
+        case 1316:
+          CField::OnSetCashShopInitialItem(iPacket);
+          break;
+        case 1317:
+          CField::OnTryMigrateCashShop(iPacket);
+          break;
+        case 1339:
+          CParcelDlg::OnPacket(iPacket);
+          break;
+        default:

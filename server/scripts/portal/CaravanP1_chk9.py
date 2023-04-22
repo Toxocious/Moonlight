@@ -1,0 +1,16 @@
+# id 9 (CaravanP1_chk9), field 867200500
+sm.createQuestWithQRValue(64006, "WC=4;k1=0;speed=20;man=200;prog=0;Pt=Caravan_chk9;Ec=9;weather=0;max=16;food=240")
+sm.createQuestWithQRValue(64006, "WC=4;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk9;Ec=9;weather=0;max=16;food=240")
+sm.createQuestWithQRValue(64006, "WC=4;k1=0;k2=1;speed=20;man=200;prog=0;Pt=CaravanP1_chk9;Ec=9;weather=0;max=16;food=240")
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9400585) # Afinas Soldier
+sm.sendNext("Oh, what a relief! I'm so glad you're with us. Let me just report to Vice Captain Butler first... ")
+sm.setParam(35)
+sm.sendSay("Go to #m867200630#.")
+sm.createQuestWithQRValue(64006, "WC=4;k1=0;k2=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk9;Ec=9;weather=0;max=16;food=240")
+sm.createQuestWithQRValue(64007, "happy0=95;happy1=70;happy2=100;happy3=95;man0=56;man1=33;man2=38;man3=73")
+sm.createQuestWithQRValue(64007, "happy0=95;happy1=75;happy2=100;happy3=95;man0=56;man1=33;man2=38;man3=73")
+sm.createQuestWithQRValue(64007, "happy0=95;happy1=75;happy2=100;happy3=98;man0=56;man1=33;man2=38;man3=73")
+sm.warp(867200630)

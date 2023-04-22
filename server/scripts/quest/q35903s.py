@@ -1,0 +1,26 @@
+# id 35903 (Power of the Relic), field 910090305
+sm.setSpeakerType(3)
+sm.setParam(548)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(1013358) # Pathfinder
+sm.sendNext("#face0#Some sort of ancient force entered me after I came in contact with the relic. Which would be kind of cool, except for that curse I picked up in the process. That's kind of a big drawback.")
+sm.sendSay("#face6#Well...there's no putting the toothpaste back in the tube, as they say. I've gotta stay calm and think about what I can do now.")
+res = sm.sendAskAccept("#face0#Maybe a little self-reflection would do me some good. A few minutes of meditation, some breathing exercises, and I'll be able to feel the change inside me.")
+sm.completeQuestNoCheck(parentID)
+sm.openUI(1)
+sm.setParam(549)
+sm.sendNext("#face0#Well, if there's one silver lining to this curse, it looks like I can actually use the Ancient Bow now. I'd say that's a pretty classy upgrade, even for the terminally hexed.")
+sm.sendSay("#face0#Ever since I touched the relic, I've been able to use those new skills, too. It's like...the knowledge was just dumped right into my brain or something. I can press the default key (K) to distribute SP, as well as assign any skills I'll need to use frequently to their own Hotkeys.")
+sm.openUI(2)
+sm.sendSay("#face0#And of course, as my mentor taught me, I can always use the default keys (S) and select-type (C) to distribute AP. I think I should've leveled up, given all that trouble I went through, and higher levels mean more AP.")
+sm.sendSay("#face3#Looks like I'm as ready as I'll ever be. Now, let's head out and see what we can find.")
+sm.playSound("Sound/SoundEff.img/pathfinder/mascapo", 100)
+sm.setParam(37)
+sm.setInnerOverrideSpeakerTemplateID(1013353) # Mascarpo
+sm.sendSay("#face0#...me!")
+sm.sendSay("#face0#...ve me!")
+sm.sendSay("#face0#Gak!")
+sm.setParam(549)
+sm.setInnerOverrideSpeakerTemplateID(1013358) # Pathfinder
+sm.sendSay("#face0#Bwah--!")
+sm.sendSay("#face3#That's an awfully weird sound, and it's coming from somewhere nearby. After I've looked around a bit more, I'll go see what's up.")

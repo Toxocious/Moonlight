@@ -1,0 +1,12 @@
+# id 867233050 (Abrup Basin : Skuas Forward Defense Line), field 867233050
+sm.createQuestWithQRValue(64001, "man=720;stage=0;enemy=104253;seq=0;mine=0;companion=708435216;dir0=0")
+sm.createQuestWithQRValue(64001, "dir1=0;man=720;stage=0;enemy=104253;seq=0;mine=0;companion=708435216;dir0=0")
+sm.createQuestWithQRValue(64002, "man=0;stage=0;enemy=4;man0=0;man1=0;companion=0")
+sm.createQuestWithQRValue(64002, "man=0;stage=0;enemy=4;man0=0;man1=0;companion=8")
+sm.createQuestWithQRValue(64003, "enemy0=1;enemy1=0;companion0=0;companion1=0")
+sm.createQuestWithQRValue(64003, "enemy0=1;enemy1=0;companion0=7;companion1=0")
+sm.createQuestWithQRValue(64002, "man=128;stage=0;enemy=4;man0=0;man1=0;companion=8")
+sm.createQuestWithQRValue(64003, "enemy0=1;enemy1=0;companion0=7;man0=128;companion1=0")
+sm.createQuestWithQRValue(64003, "enemy0=1;enemy1=0;companion0=7;man0=128;companion1=0;man1=35")
+sm.createQuestWithQRValue(64001, "dir1=0;man=720;stage=0;enemy=104253;seq=0;mine=0;Fidx=0;companion=708435216;dir0=0")
+sm.warp(867233100)

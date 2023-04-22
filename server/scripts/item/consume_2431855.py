@@ -1,0 +1,6 @@
+# First Explorer Gift Box  |  (2431855)
+sm.giveItem(2000013, 50)
+sm.giveItem(2000014, 50)
+sm.giveItem(1072850)
+sm.giveItem(1052646)
+sm.consumeItem(parentID)

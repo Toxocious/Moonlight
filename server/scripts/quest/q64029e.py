@@ -1,0 +1,11 @@
+# id 64029 ([MONAD: The First Omen] Essentials), field 867200400
+sm.setMapTaggedObjectVisible("guide136", False, 0, 0)
+sm.setMapTaggedObjectVisible("guide137", False, 0, 0)
+sm.setMapTaggedObjectVisible("guide135", False, 0, 0)
+sm.setSpeakerType(3)
+sm.setParam(57)
+sm.setColor(1)
+sm.sendNext("#b(This was burnt to cinders. No way anyone's eating it now.) ")
+sm.sendSay("#b(Might need to think of another way to get food.) ")
+sm.sendSay("#b(Time to talk to Peytour.) ")
+sm.completeQuestNoCheck(parentID)

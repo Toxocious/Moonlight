@@ -1,0 +1,20 @@
+# id 17670 ([Commerci Republic] Ominous Feeling), field 865030300
+sm.setSpeakerID(9390236) # Leon Daniella
+sm.sendNext("Claire, do you think you were sensing this barrier?")
+sm.setParam(4)
+sm.setInnerOverrideSpeakerTemplateID(9390205) # Claire Tremier
+sm.sendSay("I believe so. It certainly feels the same... dark and nefarious.")
+sm.setParam(0)
+res = sm.sendAskYesNo("#h0#, it's time for us to go in, and and take a look.")
+sm.startQuest(parentID)
+sm.setParam(2)
+sm.sendNext("Let me take this one alone. You stay here.")
+sm.setParam(0)
+sm.sendSay("What? I was BORN to do this!")
+sm.setParam(2)
+sm.sendSay("You weren't born to do anything! Just stay here and watch Claire. ")
+sm.setParam(0)
+sm.sendSay("Oooooh, I get it. Nice move, sidekick. I'll stay here with Claire.")
+sm.setParam(2)
+sm.sendSay("Great, yes. I'm going in.")
+sm.warp(865030400)

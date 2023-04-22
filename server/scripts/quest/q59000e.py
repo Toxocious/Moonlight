@@ -1,0 +1,11 @@
+# 59000 - The Town Prankster
+sm.setPlayerAsSpeaker()
+sm.sendNext("Hilga, I am truly, deeply, totally, completely sorry. ")
+sm.setSpeakerID(9390305)
+sm.sendNext("You pulled this prank on me, #h #?")
+sm.setPlayerAsSpeaker()
+sm.sendNext("I thought everyone would find it entertaining, but I was wrong. I'm epically heroically massively sorry. Will you forgive me?")
+sm.setSpeakerID(9390305)
+sm.sendNext("Sigh. You're still young, so I suppose I have to let it slide. Don't do it again, okay?")
+sm.completeQuest(parentID)
+sm.dispose()

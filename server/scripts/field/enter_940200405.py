@@ -1,0 +1,13 @@
+# id 940200405 (Arcana : Spirit Tree Vantage), field 940200405
+sm.lockInGameUI(True, False)
+sm.removeAdditionalEffect()
+sm.blind(True, 255, 0, 0, 0, 0)
+sm.spawnNpc(3003350, -662, 25)
+sm.showNpcSpecialActionByTemplateId(3003350, "summon", 0)
+sm.resetNpcSpecialActionByTemplateId(3003350)
+sm.showNpcSpecialActionByTemplateId(3003350, "cry", -1)
+sm.sendDelay(1000)
+sm.blind(False, 0, 0, 0, 0, 1500)
+sm.lockInGameUI(False, True)
+sm.createQuestWithQRValue(34451, "clear=1")
+sm.warp(450005015)

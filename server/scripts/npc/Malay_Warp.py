@@ -1,0 +1,1 @@
+#Entrance script for Spooky World Raid

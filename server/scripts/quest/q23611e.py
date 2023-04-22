@@ -1,0 +1,52 @@
+# Veritas's Finest ; Xenon 2nd Job
+
+PROFESSOR_DREAMBOAT = 2300001
+
+sm.setSpeakerID(PROFESSOR_DREAMBOAT)
+sm.sendNext("Welcome. You must be the one Claudine mentioned. I am Professor Drea...Moon. Sorry, the nickname's sort of hard to escape. I am the head of Resistance Research Command, otherwise known as #b#m230050000##k.")
+sm.flipDialoguePlayerAsSpeaker()
+sm.sendSay("#b#m230050000##k?")
+sm.setSpeakerID(PROFESSOR_DREAMBOAT)
+sm.sendSay("I doubt Claudine gave you the details over an insecure channel. We are a research group, dedicated to tracking and addressing strange phenomena across Maple World that may be related to the Black Mage. We have gathered scholars of all areas of expertise to investigate these happenings.")
+sm.sendSay("Unfortunately, we are sorely lacking in people. That's why we're so glad to have a field agent from the Resistance.")
+
+sm.flipDialoguePlayerAsSpeaker()
+sm.sendSay("But, I... I'm not free to go where I please right now.")
+sm.setSpeakerID(PROFESSOR_DREAMBOAT)
+sm.sendSay("Ah, yes, someone is tracking you, right? Well, have no worries. I'm sure somebody here can figure that part out. This base is completely undetectable to any scanners, so you're safe enough inside.")
+sm.flipDialoguePlayerAsSpeaker()
+sm.sendSay("Interesting. Would it be possible to create a wearable version of your scrambling systems? Perhaps that would...")
+sm.setSpeakerID(PROFESSOR_DREAMBOAT)
+sm.sendSay("Slow down there, buddy. You're not a building. We can't just pad you down with three-fot-thick lead... Or can we?")
+sm.flipDialoguePlayerAsSpeaker()
+sm.sendSay("I can carry a great deal of weight with my current booster alignment.")
+sm.setSpeakerID(PROFESSOR_DREAMBOAT)
+sm.sendSay("You'd be the size of a two story building. It's not a good plan.")
+sm.flipDialoguePlayerAsSpeaker()
+sm.sendSay("Unfortunate... I suppose that means this is the only place I can feel safe.")
+
+sm.setSpeakerID(PROFESSOR_DREAMBOAT)
+sm.sendSay("Well, there might be another way. Maybe we can create a #bPulse Disruptor#k.")
+sm.flipDialoguePlayerAsSpeaker()
+sm.sendSay("#bPulse Disruptor#k?")
+sm.setSpeakerID(PROFESSOR_DREAMBOAT)
+sm.sendSay("If you're giving off a signal, I'm sure we can create SOME sort of counter-system to block it out. It woudl require multiple devices though, probably scattered all over...")
+sm.sendSay("This is actually very similar to something Claudine requested. I bet I can dig up that research somewhere...")
+sm.flipDialoguePlayerAsSpeaker()
+sm.sendSay("Is there anything I can do?")
+sm.setSpeakerID(PROFESSOR_DREAMBOAT)
+sm.sendSay("Well, it's probably a little below your abilities, but all the scientists around here could use an assistant, myself included.")
+
+if sm.sendAskYesNo("If you're willing to take the job, I'm ready to hire you as the one-and-only #b#m230050000##k special agent. Do you accept?\r\n\r\n#b<Accept 2nd Job Advancement.>"):
+    if not sm.canHold(1142576):
+        sm.sendSayOkay("Please make some space in your equipment inventory.")
+        sm.dispose()
+    sm.completeQuest(parentID)
+    sm.jobAdvance(3610)
+    sm.giveItem(1142576)
+    sm.giveAndEquip(1353002)
+    sm.giveSkill(30021235)
+    sm.sendNext("Congratulations, special agent #h #!")
+    sm.sendSay("You probably saw it when you were walking in, but one of our engineers created the world's gaudiest transport device. You can use it to go out on missions, or get back to the lab any time.")
+    sm.sendSay("He named it the #bPromessa#k. You can use the #bPromessa Escape#k skill to call it wherever you are.")
+    sm.sendPrev("I know it's rpetty ridiculous-looking, but the design is solid as can be.")

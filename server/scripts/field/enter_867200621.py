@@ -1,0 +1,58 @@
+# id 867200621 (Abrup Basin : Empty Plain), field 867200621
+sm.lockInGameUI(True, False)
+sm.spawnNpc(9400589, -58, 450)
+sm.showNpcSpecialActionByTemplateId(9400589, "summon", 0)
+sm.spawnNpc(9400590, 15, 450)
+sm.showNpcSpecialActionByTemplateId(9400590, "summon", 0)
+sm.spawnNpc(9400587, 155, 450)
+sm.showNpcSpecialActionByTemplateId(9400587, "summon", 0)
+sm.spawnNpc(9400593, 587, 450)
+sm.showNpcSpecialActionByTemplateId(9400593, "summon", 0)
+sm.spawnNpc(9400591, 451, 450)
+sm.showNpcSpecialActionByTemplateId(9400591, "summon", 0)
+sm.forcedFlip(True)
+sm.sendDelay(500)
+sm.zoomCamera(1500, 2000, 1500, 150, 450)
+sm.sendDelay(500)
+sm.showNpcSpecialActionByTemplateId(9400590, "attack2", -1)
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9400590) # Slaka
+sm.sendNext("#face0#What is this? Why is this all I get? ")
+sm.sendSay("#face0#Ha! Have you forgotten who risked their lives to get this food before we left?! ")
+sm.resetNpcSpecialActionByTemplateId(9400590)
+sm.setInnerOverrideSpeakerTemplateID(9400587) # Kan
+sm.sendSay("#face0#Slaka! Even you can't ignore how cold and hungry everyone is. ")
+sm.setInnerOverrideSpeakerTemplateID(9400590) # Slaka
+sm.sendSay("#face0#How much did you eat to get all that energy!? ")
+sm.setInnerOverrideSpeakerTemplateID(9400587) # Kan
+sm.sendSay("#face0#Slaka... I won't force you to sacrifice for the sake of others, but I will not tolerate you turning people against each other! ")
+sm.zoomCamera(3000, 2000, 3000, 400, 450)
+sm.showEffect("Effect/OnUserEff.img/emotion/oh", 0, 0, 0, 0, 18555205, 0, 0)
+sm.sendDelay(500)
+sm.moveNpcByTemplateId(9400590, False, 250, 120)
+sm.sendDelay(1000)
+sm.setInnerOverrideSpeakerTemplateID(9400590) # Slaka
+sm.sendNext("#face0#Ha! There you are, #h0#! So, you decided who gets what food? ")
+sm.sendDelay(500)
+sm.flipNpcByTemplateId(9400587, False)
+sm.moveNpcByTemplateId(9400589, False, 250, 120)
+sm.sendDelay(1000)
+sm.setInnerOverrideSpeakerTemplateID(9400589) # Peytour
+sm.sendNext("#face0#Calm down, Slaka. #h0# is making difficult decisions for all of us. ")
+sm.sendSay("#face0#Please... we all have to sacrifice a little so that everyone can survive. ")
+sm.setInnerOverrideSpeakerTemplateID(9400590) # Slaka
+sm.sendSay("#face0#Why's that, huh? Why do I even need to be chained to you? Why should I sacrifice anything? ")
+sm.sendDelay(1000)
+res = sm.sendNext("#face0#I'd rather take my chances on my own than be dragged down by you lot. Pathetic!#b\r\n#L0# 'Fine, Slaka. You can have more food.'#l\r\n#L1# 'Enough arguing. We have to conserve our supplies.'#l")
+sm.createQuestWithQRValue(64006, "WC=3;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk6;Ec=6;weather=3;max=16;food=240")
+sm.sendNext("#face0#You should have done this earlier, you know. Think harder next time! ")
+sm.setInnerOverrideSpeakerTemplateID(9400587) # Kan
+sm.sendSay("#face0#That was a bad decision that undermines our principles. I guarantee you will regret doing that. ")
+sm.setInnerOverrideSpeakerTemplateID(9400590) # Slaka
+sm.sendSay("#face0#No way. ")
+sm.moveCamera(True, 0, 0, 0)
+sm.lockInGameUI(False, True)
+sm.createQuestWithQRValue(64006, "WC=3;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk6;Ec=7;weather=3;max=16;food=240")
+sm.warp(867200500)

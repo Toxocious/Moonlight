@@ -1,0 +1,16 @@
+# id 17516 ([Tynerum] Crimsonwhat?), field 863100100
+sm.setSpeakerID(9390102) # Unknown Device
+sm.setParam(17)
+sm.sendNext("This is just like the Shadow Veil Forest, where the demons lived.")
+sm.sendSay("I see... something.")
+sm.setParam(0)
+sm.sendSay("Get out, peon.")
+sm.setParam(17)
+sm.sendSay("Nobody ever invites me in, and I'm such a nice house guest. Who are you?")
+sm.setParam(0)
+sm.sendSay("How dare you set foot in my forest?")
+sm.setParam(17)
+sm.sendSay("This place is abandoned. And I asked you a question. Who are you?")
+sm.setParam(0)
+sm.sendSay("Leave.")
+sm.startQuest(parentID)

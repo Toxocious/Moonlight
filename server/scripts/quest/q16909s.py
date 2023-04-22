@@ -1,0 +1,17 @@
+# id 16909 (Gain 2 additional levels for every 1 level up until Lv. 200 during the Tera Burning Project!), field 701220100
+sm.setSpeakerID(9010000) # Maple Administrator
+sm.sendNext("Hello, #e#h0##n! Ready to level up in a flash? The #e#rTera Burning Project#n#k is going on right now. You know what that means, two bonus levels for each that you earn!")
+sm.sendSay("All #bnew characters#k are eligible to participate, as long as they were created during the Tera Burning Project period, which ends on #b07/23/2019 11:59 PM#k. You can only have #e1 Tera Burning character per account#k though.")
+sm.sendSay("Your Tera Burning character will gain #b#e2 additional levels#n#k for each level that they earn, starting from Level 10.\r\n#r(Effect ends at Level 200.)#k")
+sm.sendSay("With the #badditional perks that only apply to Tera Burning Characters#k during the Tera Burning Event Period, leveling up beyond Lv. 200 will be easier.")
+sm.sendSay("#eFirst Perk:\r\nYou can undertake your #n#b5th Job: Call of the Erdas#k quest without having to complete the prerequisite quests.\r\n#r(Note: Playing through the 5th Job: Call of the Erdas quest in this way will not automatically clear any prerequisite quest steps you may currently have in progress.)")
+sm.sendSay("#eSecond Perk:#n\r\nEach time you gain a level in the #bLv. 200 - 209 range#k, you'll get #b#t1712001:# x10#k.\r\n\r\n#eThird Perk:#n\r\nEach time you gain a level in the #bLv. 210 - 220 range#k, you'll get #b#t2438141:# x10#k.")
+sm.sendPrev("You'll also receive a gift to help you grow exponentially, so become an #rUnrelenting Flame#k and start leveling!\r\n\r\n#eGift List#n\r\n\r\n#i2439178:##b #t2439178#\r\n#i3700530:##b#t3700530#\r\n#i2630120:##b #t2630120#\r\n#i2630121:##b #t2630121#\r\n#i2439179:##b #t2439179#\r\n#i2433444:# #t2433444#\r\n#i2433509:# #t2433509# (Included in Legendary Cryptic Chest)\r\n#i2433510:# #t2433510# (Included in Legendary Cryptic Chest)\r\n#i1004404:# #t1004404# (Included in Legendary Cryptic Chest)\r\n#i1102799:# #t1102799# (Included in Legendary Cryptic Chest)\r\n#i1052893:# #t1052893# (Included in Legendary Cryptic Chest)\r\n#i2439170:# #t2439170# (Included in Legendary Cryptic Chest)\r\n#i2435742:# #t2435742#")
+sm.createQuestWithQRValue(63311, "combo=395")
+sm.createQuestWithQRValue(63311, "combo=396")
+sm.startQuest(16689)
+sm.startQuest(16689)
+sm.startQuest(16689)
+sm.startQuest(16689)
+sm.startQuest(16689)
+sm.startQuest(16689)

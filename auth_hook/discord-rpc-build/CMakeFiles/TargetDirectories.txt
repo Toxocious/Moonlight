@@ -1,0 +1,7 @@
+C:/Projects/MU2/lib/discord-rpc-build/build32/CMakeFiles/INSTALL.dir
+C:/Projects/MU2/lib/discord-rpc-build/build32/CMakeFiles/ALL_BUILD.dir
+C:/Projects/MU2/lib/discord-rpc-build/build32/CMakeFiles/ZERO_CHECK.dir
+C:/Projects/MU2/lib/discord-rpc-build/build32/src/CMakeFiles/discord-rpc.dir
+C:/Projects/MU2/lib/discord-rpc-build/build32/src/CMakeFiles/INSTALL.dir
+C:/Projects/MU2/lib/discord-rpc-build/build32/examples/send-presence/CMakeFiles/send-presence.dir
+C:/Projects/MU2/lib/discord-rpc-build/build32/examples/send-presence/CMakeFiles/INSTALL.dir

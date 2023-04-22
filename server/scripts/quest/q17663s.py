@@ -1,0 +1,18 @@
+# id 17663 ([Commerci Republic] Assassins's Den), field 865030101
+sm.setSpeakerID(9390263) # Leon Daniella
+sm.sendNext("They must be the gatekeepers.")
+sm.setParam(2)
+sm.sendSay("There are too many of them out there to just be guarding a gate. ")
+sm.setParam(0)
+res = sm.sendAskYesNo("Maybe the gate is made of gold... Whatever the case, we've gotta beat them up. This... is what I was born to do.")
+sm.startQuest(parentID)
+sm.sendNext("I'm taking you suckers down!")
+sm.startQuest(parentID)
+sm.progressMessageFont(3, 20, 20, 0, "EXP and mesos greatly reduced if hunting monsters beyond your level range.")
+sm.startQuest(parentID)
+sm.startQuest(parentID)
+sm.startQuest(parentID)
+sm.startQuest(parentID)
+sm.startQuest(parentID)
+sm.startQuest(parentID)
+sm.startQuest(parentID)

@@ -1,0 +1,48 @@
+package net.swordie.ms.enums;
+
+/**
+ * @author Sjonnie
+ * Created on 6/18/2018.
+ */
+public enum SkillType {
+    SKILL_TYPE_NONE(0),
+    SKILL_TYPE_MELEE(1),
+    SKILL_TYPE_SHOOT(2),
+    SKILL_TYPE_BODY(3),
+    SKILL_TYPE_AREA(4),
+    SKILL_TYPE_BUFF(10),
+    SKILL_TYPE_BUFF_EX(11),
+    SKILL_TYPE_BUFF_MORPH(12),
+    SKILL_TYPE_BUFF_RIDING(13),
+    SKILL_TYPE_BUFF_HIDE(14),
+    SKILL_TYPE_BUFF_AURA(15),
+    SKILL_TYPE_BUFF_ONOFF(16),
+    SKILL_TYPE_HEAL(31),
+    SKILL_TYPE_CURSE(32),
+    SKILL_TYPE_SUMMON(33),
+    SKILL_TYPE_DISPEL(34),
+    SKILL_TYPE_ANTI_CHARM(35),
+    SKILL_TYPE_ZONE(36),
+    SKILL_TYPE_COOLTIME_INIT(37),
+    SKILL_TYPE_MOVE_JUMP(40),
+    SKILL_TYPE_MOVE(41),
+    SKILL_TYPE_MOVE_RANDOM_TELEPORT(42),
+    SKILL_TYPE_PASSIVE(50),
+    SKILL_TYPE_PASSIVE_EX(51),
+    SKILL_TYPE_PASSIVE_COMMAND(52),
+    SKILL_TYPE_PASSIVE_FINALATTACK(53),
+    SKILL_TYPE_ACTIVATED_BY_SUMMON(54),
+    SKILL_TYPE_DUMMY(98),
+    SKILL_TYPE_ETC(99),
+    ;
+
+    private int val;
+
+    SkillType(int val) {
+        this.val = val;
+    }
+
+    public int getVal() {
+        return val;
+    }
+}

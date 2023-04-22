@@ -1,0 +1,35 @@
+KYRIN = 1090000
+
+sm.setSpeakerID(KYRIN)
+sm.sendNext("Good to see you, #h0#. So...you're the one that helped Cutter return. I saw you were hurt when you first arrived...are you okay now? You must be made of stern stuff. No wonder Cutter regards you so highly. My name is Kyrin. I'm captain of the Nautilus, as well as the Job Instructor for Pirates.")
+sm.sendSay("Cutter told you that he wants you to become a #bCannoneer#k, right? I agree with him, but I'm worried that your heart might not be in it. Maybe if you knew more about the pirates, you would be more interested. Let me tell you a little about us.")
+sm.sendSay("I brought the pirates together to start working against the Black Mage, the great evil that threatens all of Maple World. Turns out the hero business is more profitable than looting and pillaging!")
+sm.sendSay("If you become a Pirate, you can help investigate the Black Mage's plots, and assist in the defense of Maple World. Keep in mind that I won't make you do anything...I'm primarily a Job Instructor, and just guide the pirates in a general sense.")
+sm.sendSay("But, I know you would help us fight the Black Mage. You have that gleam in your eye that all heroes do. Anyway, I've said my piece.")
+
+if sm.sendAskAccept("Now, it's all up to you. Do you wish to join the pirates? I would be quite pleased if you became a Cannoneer. "):
+    sm.giveItem(1532000)
+    sm.giveItem(1002610)
+    sm.giveItem(1052095)
+    sm.giveItem(1142107)
+    sm.startQuest(parentID)
+    sm.completeQuest(parentID)
+    sm.completeQuest(29900)
+    sm.jobAdvance(501)
+    sm.giveSkill(109, 1, 1)
+    sm.setAP(35)
+    sm.setDEX(4)
+    sm.setSTR(23)
+    sm.startQuest(17903)
+    sm.completeQuest(17903)
+    sm.systemMessage("You cleared the Adventure Journal mission.")
+    sm.sendNext("Now you're one of us. Take a look at your skills and make yourself into a real Pirate. I even gave you some extra SP to get started.")
+    sm.avatarOriented("Effect/OnUserEff.img/RecordClear_BT/clear")
+    sm.sendSay("Skills alone do not make you a great pirate. You have to distribute your stats like a pirate, too! If you're hoping to become a Cannoneer, invest heavily in STR so you can hold that heavy cannon of yours. And if you just have no idea, use the #bauto-distribute#k option. Simple, and effective.")
+    sm.sendSay("Oh, I gave you a little gift, too. I expanded a few slots in your Equip and ETC Item tabs, so you should have plenty of room for your spoils!")
+    sm.sendSay("Now, there is one last thing that you need to remember. More than anything else, you need to keep your HP up. If you fall in battle, you'll lose some of your EXP. And I'm SURE you don't want that, right?")
+    sm.sendSay("Well, that's it! I have taught you everything you need to know. I also gave you a few decent weapons, so make good use of them. Now, go forth, grow stronger, and kick around the Black Mage's minions, if you get the chance!")
+    
+else:
+    sm.sendNext("Oh. So...you want to be something else? I understand...but Cutter might not...")
+    sm.dispose()

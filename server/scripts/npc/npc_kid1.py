@@ -1,0 +1,1 @@
+sm.spawnMob(100000)

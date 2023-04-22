@@ -1,0 +1,10 @@
+# id 101020100 (Chimney Tree : Close to the Birds), field 101020100
+sm.createQuestWithQRValue(16700, "count=151;date=20190716")
+sm.createQuestWithQRValue(16700, "count=152;date=20190716")
+sm.createQuestWithQRValue(16700, "count=153;date=20190716")
+sm.createQuestWithQRValue(16700, "count=154;date=20190716")
+sm.createQuestWithQRValue(16700, "count=155;date=20190716")
+sm.showEffect("Effect/BasicEff.img/monsterCollectionGet", 0, 4)
+sm.createQuestWithQRValue(18821, "lc=0:0:4:23")
+sm.createQuestWithQRValue(18821, "count=1;lc=0:0:4:23")
+sm.startQuest(28859)

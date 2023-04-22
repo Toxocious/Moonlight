@@ -1,0 +1,17 @@
+# id 17642 ([Commerci Republic] A Fickle Man), field 865010001
+sm.setSpeakerID(9390244) # Leon Daniella
+sm.sendNext("Everyone, make this thing go faster! Captain Blood isn't gonna swashbuckle himself!")
+sm.setParam(2)
+sm.sendSay("Hey, Leon.")
+sm.setParam(0)
+sm.sendSay("Welcome aboard! It might look like just a merchant ship, but...okay, it's just a merchant ship.")
+res = sm.sendAskYesNo("Anyway, what's up? You have your serious face on.")
+sm.startQuest(parentID)
+sm.setParam(2)
+sm.sendNext("I let someone aboard without asking you first. I know it's late but I wanted to let you know.")
+sm.setParam(0)
+sm.sendSay("What? Who's on board?")
+sm.setParam(2)
+sm.sendSay("Ah... I actually don't know her name, but it's not like you don't know her and she's pretty good at...")
+sm.setParam(0)
+sm.sendSay("What? You let a GIRL on board and didn't tell me?! What is WRONG with you? Is she cute? Does she like handsome swashbucklers with names that start with L?")

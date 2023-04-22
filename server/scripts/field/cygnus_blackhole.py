@@ -1,0 +1,11 @@
+# Hidden street : A dark place
+sm.lockInGameUI(True)
+sm.setPlayerAsSpeaker()
+sm.sendNext("Where am I? I almost caught up with that person...")
+sm.forcedInput(2)
+sm.sendDelay(2000)
+sm.sendNext("Is there anyone..?")
+sm.sendNext("It sounds like the voice of Hawkeye.")
+sm.warpInstanceOut(913031003, 3)
+sm.setQRValue(20891, "dream", False)
+sm.lockInGameUI(False)

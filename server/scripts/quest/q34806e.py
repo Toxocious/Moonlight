@@ -1,0 +1,16 @@
+# id 34806 (Special Activities), field 402000528
+sm.createQuestWithQRValue(parentID, "scene=1;item1=1;item2=1")
+sm.completeQuestNoCheck(parentID)
+sm.createQuestWithQRValue(parentID, "scene=1;item1=1;item2=1;exp=1")
+sm.startQuest(11620)
+sm.createQuestWithQRValue(15710, "lasttime=19/02/21/16/21")
+sm.lockInGameUI(True, False)
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(3001301) # Agate
+sm.sendNext("#face2#You'll need the potions I just gave you to stay strong. \r\nYou wouldn't want to run out of energy in the middle of a fight.")
+sm.sendSay("#face1#Shall we begin?")
+sm.blind(True, 255, 0, 0, 0, 500)
+sm.sendDelay(500)
+sm.warp(402000533)

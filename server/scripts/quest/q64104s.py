@@ -1,0 +1,17 @@
+# id 64104 ([MONAD: The First Omen] Skuas Remembers), field 867202300
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9400600) # Birna
+sm.sendNext("#h0#, I listened to your speech... ")
+sm.sendSay("Don't concern yourself with the naysayers. You understand what is needed for us to triumph here. ")
+sm.setParam(57)
+sm.sendSay("#bThank you, Chief Birna. And thank you for arranging this meeting. ")
+sm.setParam(37)
+sm.sendSay("With this many people working together, the greatest challenge is focusing on one goal. ")
+sm.sendSay("For us, we all desperately want the same thing. That gives a bit of an advantage right there. ")
+sm.sendSay("Skuas has taken in many refugees in the past. It's not the first time we've faced such hardships. ")
+sm.sendSay("History has taught me that meetings like this are necessary to unite our people. What we've done today will be told of in stories for generations. ")
+sm.setParam(57)
+sm.sendSay("#bSkuas remembers its history, then. ")
+sm.completeQuestNoCheck(parentID)

@@ -1,0 +1,26 @@
+# id 701220351 (Hidden Street : Secret Library), field 701220351
+sm.lockInGameUI(True, False)
+sm.removeAdditionalEffect()
+sm.spawnNpc(9310577, -377, -34)
+sm.showNpcSpecialActionByTemplateId(9310577, "summon", 0)
+sm.spawnNpc(9310578, 456, -79)
+sm.showNpcSpecialActionByTemplateId(9310578, "summon", 0)
+sm.spawnNpc(9310579, -14, 58)
+sm.showNpcSpecialActionByTemplateId(9310579, "summon", 0)
+sm.sendDelay(500)
+sm.showNpcSpecialActionByTemplateId(9310579, "angry", -1)
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9310579) # Nine-Tailed Fox
+sm.sendNext("Intruder!")
+sm.setInnerOverrideSpeakerTemplateID(9310578) # Goblin Demon
+sm.sendSay("A human. Gross. Who's got the antihomosapien gel?")
+sm.setInnerOverrideSpeakerTemplateID(9310579) # Nine-Tailed Fox
+sm.sendSay("Shoo! Begone! Shoo!")
+sm.sendDelay(500)
+sm.setParam(57)
+sm.sendNext("Huh? What? Wait a sec--!")
+sm.lockInGameUI(False, True)
+sm.createQuestWithQRValue(62012, "secret=2;hidden=hid4;find=1")
+sm.warp(701220300)

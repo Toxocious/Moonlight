@@ -1,0 +1,17 @@
+# id 1478 (V Matrix), field 101070000
+sm.setSpeakerID(2140001) # Memory Keeper
+sm.sendNext("Your eyes have been opened to a new power, but there is something you must know before you can wield its true potential.")
+sm.sendSay("I am certain you will put that power to a good use, however...")
+sm.sendSay("There are some things you should understand about how it works. I know your memory may not be as good as mine, so feel free to take notes.")
+sm.sendSay("Your new power can be controlled through a system called the V Matrix. Open the #bSkill window#k and you will see that the #bV tab has appeared#k. Press the #bV Matrix button#k to examine your powers.")
+sm.sendSay("If you use the Nodestone I have just given you, you'll get a Node for a new skill. #bDouble-click the node#k in the V Matrix or #bdrag it to an empty slot#k to activate the #bnew skill in the V tab#k.")
+sm.sendSay("Contrarily, the skill will disappear from the V tab if you remove the node from the slot.")
+sm.sendSay("I am sure your new skill will help you greatly in Arcane River.")
+sm.sendSay("The next Nodestone you acquire could contain a #bBoost Node#k or\r\n#bSpecial Node#k or another Skill Node. You can make your existing skills even more powerful by placing Boost Nodes on the V Matrix.")
+sm.sendSay("If you place a Special Node in the V Matrix, a mysterious power will surge up to help you, when triggered under special conditions.")
+sm.sendSay("But Special Nodes will vanish over time due to the immense quantity of Erdas they expend.")
+sm.sendSay("Skill Nodes and Boost Nodes can be enhanced by consuming the same nodes, but this can only be done with the help of a #bNode Master#k. ")
+sm.sendSay("Show the node to the Node Master. Select Enhance by right-clicking the Node and then choose the materials to consume.")
+sm.sendSay("Lastly, note that the skills and abilities you obtain from equipping Nodes are not affected by buff duration increases or cooldown effects.")
+sm.sendSay("I think my explanations should be enough to set such a talented individual as yourself down the proper path. All that's left is for you to wield this new power. Good luck.")
+sm.completeQuestNoCheck(parentID)

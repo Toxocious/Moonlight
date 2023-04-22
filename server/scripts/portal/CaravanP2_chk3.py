@@ -1,0 +1,15 @@
+# id 3 (CaravanP2_chk3), field 867200550
+sm.createQuestWithQRValue(64006, "WC=1;k1=0;k2=0;k3=0;speed=20;man=199;prog=0;Pt=Caravan_chk3;Ec=3;max=20;weather=1;food=320")
+sm.createQuestWithQRValue(64006, "WC=1;k1=0;k2=0;k3=0;speed=20;man=199;prog=0;Pt=CaravanP2_chk3;Ec=3;max=20;weather=1;food=320")
+sm.createQuestWithQRValue(64006, "WC=1;k1=0;k2=0;k3=0;k5=1;speed=20;man=199;prog=0;Pt=CaravanP2_chk3;Ec=3;max=20;weather=1;food=320")
+sm.createQuestWithQRValue(64193, "pMeat=0")
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9400581) # Butler
+sm.sendNext("#face0#We must complete this mission as fast as possible. 3 minutes. You have 3 minutes to bring back as much food as you can. ")
+sm.setParam(35)
+sm.sendSay("Go to #m867200900#.")
+sm.createQuestWithQRValue(64006, "WC=1;k1=0;k2=0;k3=0;k5=1;speed=20;man=199;prog=0;Pt=CaravanP2_chk3;Ec=3;max=20;weather=1;food=420")
+sm.createQuestWithQRValue(64006, "WC=1;k1=0;k2=0;k3=0;k5=0;speed=20;man=199;prog=0;Pt=CaravanP2_chk3;Ec=3;max=20;weather=1;food=420")
+sm.warp(867200900)

@@ -1,0 +1,1 @@
+unsigned DiscordStart(void* param);

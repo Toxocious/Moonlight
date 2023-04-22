@@ -1,0 +1,22 @@
+# id 17637 ([Commerci Republic] Deus Ex You), field 865000002
+sm.setSpeakerID(9390203) # Gilberto Daniella
+sm.sendNext("All right. Your help is most welcome.")
+sm.setParam(4)
+sm.setInnerOverrideSpeakerTemplateID(9390202) # Leon Daniella
+sm.sendSay("Awesome! You're the best, Dad!")
+sm.setParam(0)
+sm.sendSay("How many times have I-Look, just remember that we're asking for help, not depending on it.")
+sm.setParam(4)
+sm.sendSay("Totally, Dad. I'll take care of Captain Blood myself! I've been practicing in my video games!")
+sm.setParam(2)
+sm.sendSay("Um, good to have you along, Leon. Thank you, Prime Minister.")
+sm.setParam(4)
+sm.sendSay("Can't wait to show you my mad skills! Aww yeah! Hey, lemme know when you're ready.")
+sm.sendSay("Here, this is a gift for you. Let's do this!")
+sm.completeQuestNoCheck(parentID)
+sm.setParam(1)
+sm.sendSay("I must ask that you look after my son, Leon. He's just too...eager. Yes, that's the word. Eager.")
+sm.createQuestWithQRValue(18418, "B=33261")
+sm.setParam(3)
+sm.sendSay("Don't worry. I've seen him fight and I know he'll be fine.")
+sm.createQuestWithQRValue(18418, "B=33262")

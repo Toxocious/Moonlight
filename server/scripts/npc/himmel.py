@@ -1,0 +1,4 @@
+# Hidden Street - Ardentmill :: 910001000
+# Grant Elder :: 9031000
+sm.sendNext("Interested in Professions, eh? Let me give you a brief introduction.\nOur town is home to 5 master artisans who practice #bHerbalism, Mining, Smithing, Accessory Crafting, and Alchemy#k. The Master Artisan Association has a rule that limits each individual to 2 Professions, and each Profession you learn must complement each other. Accordingly, you can select and learn up to #r2 Professions#k.")
+sm.sendPrev("#b - Herbalism + Alchemy\n- Mining + Smithing\n- Mining + Accessory Crafting#k\n\nYou can learn any of these 3 combinations of Professions. It is up to you to choose your own path from there.")

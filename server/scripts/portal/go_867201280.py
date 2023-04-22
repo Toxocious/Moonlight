@@ -1,0 +1,18 @@
+# id 2 (go_867201280), field 867201260
+sm.lockInGameUI(True, False)
+sm.removeAdditionalEffect()
+sm.sendDelay(1000)
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9400580) # Alika
+sm.sendNext("#face5#Aghhhh! ")
+sm.forcedFlip(True)
+sm.setParam(57)
+sm.sendSay("#bWhat was that? ")
+sm.avatarOriented("Effect/OnUserEff.img/emotionBalloon/exclamation3")
+sm.forcedMove(False, 2000)
+sm.sendDelay(1500)
+sm.moveCamera(True, 0, 0, 0)
+sm.lockInGameUI(False, True)
+sm.warp(867201280)

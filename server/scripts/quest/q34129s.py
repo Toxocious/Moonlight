@@ -1,0 +1,23 @@
+# id 34129 ([Daily Quest] Vanishing Journey Research), field 450001000
+sm.createQuestWithQRValue(34127, "order=icstfenujqodmakphrblg")
+sm.createQuestWithQRValue(34127, "count=0;order=icstfenujqodmakphrblg")
+sm.createQuestWithQRValue(34163, "region=5")
+sm.setSpeakerID(3003104) # Rona
+sm.setParam(256)
+res = sm.sendAskYesNo("Hi, #h0#. I have 5 missions for you today. Would you like to take care of them now? If there is a mission you don't like, you can press the Exchange button to trade it for something else.\r\n\r\n#b#e#y34138##k#n\r\n#b#e#y34132##k#n\r\n#b#e#y34148##k#n\r\n#b#e#y34149##k#n\r\n#b#e#y34135##k#n\r\n")
+sm.setParam(0)
+res = sm.sendAskYesNo("Is there a mission on the list you aren't up for? Why not Exchange it for another one? \r\n\r\n#b(You can swap out the missions of your choice, but it is possible to receive the same mission as the one being exchanged.)#k")
+res = sm.sendNext("Select the mission you would like to replace.\r\n\r\n#b#e#L0# #y34138##l#k#n\r\n#b#e#L1# #y34132##l#k#n\r\n#b#e#L2# #y34148##l#k#n\r\n#b#e#L3# #y34149##l#k#n\r\n#b#e#L4# #y34135##l#k#n\r\n\r\n#L5# #r#eThose are all the quests I want to swap out.#k#n#l")
+res = sm.sendNext("Select the mission you would like to replace.\r\n\r\n#e#L0# #y34138##n\r\n#b#e#L1# #y34132##l#k#n\r\n#b#e#L2# #y34148##l#k#n\r\n#b#e#L3# #y34149##l#k#n\r\n#b#e#L4# #y34135##l#k#n\r\n\r\n#L5# #r#eThose are all the quests I want to swap out.#k#n#l")
+sm.startQuest(34134)
+sm.startQuest(34132)
+sm.startQuest(34148)
+sm.startQuest(34149)
+sm.startQuest(34135)
+sm.startQuest(parentID)
+sm.sendNext("All right. To replace the 1 missions you don't want, I've found 1 new missions. Here are your 5 tasks for today. \r\n\r\n#b#e#y34134##k #r[NEW]#k#n\r\n#b#e#y34132##k#n\r\n#b#e#y34148##k#n\r\n#b#e#y34149##k#n\r\n#b#e#y34135##k#n\r\n")
+sm.sendPrev("Come to me when you've finished your missions. Remember, you have to turn them in before midnight. Well then, see you later.")
+sm.createQuestWithQRValue(34170, "count=0;date=19/06/18;ctype=0")
+sm.setSpeakerID(3003145) # Nina
+res = sm.sendNext("#b#eErda Spectrum#n#k\r\nDid you know Erda has its own distinct color? Amazing right?! The only trouble is, while I was gathering Erda for study with the #bErda Collector#k I invented, I got hurt. Now I need help...\r\n#b#L0# Send me to the Erda Spectrum!#l\r\n#L1# So... What's this all about again?#l\r\n#L2# What's my remaining completion count for the day?#l")
+sm.warp(450001014)

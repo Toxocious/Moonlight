@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\lib\discord-rpc\src\discord_rpc.cpp" />
+    <ClCompile Include="$(SolutionDir)\lib\discord-rpc\src\rpc_connection.cpp" />
+    <ClCompile Include="$(SolutionDir)\lib\discord-rpc\src\serialization.cpp" />
+    <ClCompile Include="$(SolutionDir)\lib\discord-rpc\src\connection_win.cpp" />
+    <ClCompile Include="$(SolutionDir)\lib\discord-rpc\src\discord_register_win.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)\lib\discord-rpc\include\discord_rpc.h" />
+    <ClInclude Include="$(SolutionDir)\lib\discord-rpc\include\discord_register.h" />
+    <ClInclude Include="$(SolutionDir)\lib\discord-rpc\src\rpc_connection.h" />
+    <ClInclude Include="$(SolutionDir)\lib\discord-rpc\src\serialization.h" />
+    <ClInclude Include="$(SolutionDir)\lib\discord-rpc\src\connection.h" />
+    <ClInclude Include="$(SolutionDir)\lib\discord-rpc\src\backoff.h" />
+    <ClInclude Include="$(SolutionDir)\lib\discord-rpc\src\msg_queue.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="$(SolutionDir)\lib\discord-rpc\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7B3DDB13-2E1A-335E-A3F8-43DB4F15BD2C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{77681D5E-35F9-3D62-80A5-1760FC7CF746}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,36 @@
+# id 940200250 (Arcana : Cavernous Cavern), field 940200250
+sm.lockInGameUI(True, False)
+sm.removeAdditionalEffect()
+sm.blind(True, 255, 0, 0, 0, 500)
+sm.sendDelay(500)
+sm.zoomCamera(0, 2000, 0, -740, 180)
+sm.forcedFlip(True)
+sm.spawnNpc(3003313, -867, 115)
+sm.showNpcSpecialActionByTemplateId(3003313, "summon", 0)
+sm.sendDelay(300)
+sm.blind(True, 255, 0, 0, 0, 0)
+sm.sendDelay(1200)
+sm.blind(False, 0, 0, 0, 0, 1000)
+sm.sendDelay(1400)
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(3003314) # Rock Spirit
+sm.sendNext("#face0#I was swimming awound undagwound wif my bwudders when suddenwee a big wave came and swept us away!")
+sm.sendSay("#face0#When I woke up, I was twapped undah these woots! They've gwoan immensewee... It must be the same foh the Spiwit Twee.")
+sm.sendSay("#face0#And... and... I'm fohgetting somefing impohtant...")
+sm.setInnerOverrideSpeakerTemplateID(3003315) # Rock Spirits
+sm.sendSay("#face1#Us, you dodo! You awe fohgetting us!")
+sm.zoomCamera(3000, 2000, 3000, 250, -530)
+sm.sendDelay(3300)
+sm.sendNext("#face1#Oof! We awe stuck undah these bwasted woots! And... my butt is getting cohd and wet!")
+sm.setInnerOverrideSpeakerTemplateID(3003301) # Small Spirit
+sm.sendSay("#face1#Cold and... wet? They must be blocking the water! We have to free them.")
+sm.sendSay("#face1##b(Sighs)#k But they're so high up. Maybe if we piled something up to stand on...")
+sm.setInnerOverrideSpeakerTemplateID(3003314) # Rock Spirit
+sm.sendSay("#face0#I know, I know! Go and find the west of my bwudders wost thwoughout the cave! You can stack them on top wun anudder and cwimb up!")
+sm.sendSay("#face0#I have ten bwudders awtogether. And we have... Two...Thwee... Fowuh of us here, incwuding me. That means I have seven bwudders that need saving! Pwease find them!")
+sm.setInnerOverrideSpeakerTemplateID(3003301) # Small Spirit
+sm.sendSay("#face2# #b#h0##k, if we free them, the water will flow, and the Marimba Blossoms will play once more! Let's search the cavern for the missing Rock Spirits!")
+sm.lockInGameUI(False, True)
+sm.warp(450005400)

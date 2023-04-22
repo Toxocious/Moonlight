@@ -1,0 +1,13 @@
+# id 867236150 (Abrup Basin : Skuas Castle Tower), field 867236150
+sm.lockInGameUI(True, False)
+sm.forcedInput(2)
+sm.sendDelay(200)
+sm.blind(True, 255, 0, 0, 0, 0)
+sm.sendDelay(1000)
+sm.blind(False, 0, 0, 0, 0, 1500)
+sm.sendDelay(1500)
+sm.lockInGameUI(False, True)
+sm.createQuestWithQRValue(64204, "RushMob=1;P2_fall=0;LadderMob=0")
+sm.createQuestWithQRValue(64204, "RushMob=1;P2_fall=1;LadderMob=0")
+sm.createQuestWithQRValue(16119, "")
+sm.createQuestWithQRValue(16150, "")

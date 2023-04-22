@@ -1,0 +1,35 @@
+# id 5 (CaravanP1_chk5), field 867200500
+sm.createQuestWithQRValue(64006, "WC=2;speed=20;man=200;prog=0;Pt=Caravan_chk5;Ec=5;weather=2;max=16;food=450")
+sm.createQuestWithQRValue(64006, "WC=2;speed=20;man=200;prog=0;Pt=CaravanP1_chk5;Ec=5;weather=2;max=16;food=450")
+sm.createQuestWithQRValue(64006, "WC=2;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk5;Ec=5;weather=2;max=16;food=450")
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9400587) # Kan
+sm.sendNext("#face0#Good decision. ")
+sm.sendSay("#face0#But remember that our food is limited, so not everyone can have his or her fill. ")
+sm.setInnerOverrideSpeakerTemplateID(9400580) # Alika
+sm.sendSay("#face0##h0#, are you distributing food? ")
+sm.sendSay("#face0#If you would, please make sure the children and wounded get their portions first. They need all the help they can get. ")
+sm.setInnerOverrideSpeakerTemplateID(9400587) # Kan
+sm.sendSay("#face0#If you let your emotions decide for you, you may end up losing everyone's trust. ")
+sm.sendSay("#face0#It is tradition in Kaptafel to allow our hunters to eat first, guaranteeing their strength to continue hunting. It's a tradition that has kept us alive through many harsh winters. ")
+sm.setInnerOverrideSpeakerTemplateID(9400580) # Alika
+sm.sendSay("#face0#Then, at least let the children eat first. They do not understand such things, and hunger hits them the hardest. ")
+sm.setInnerOverrideSpeakerTemplateID(9400587) # Kan
+sm.sendSay("#face0#...#h0#, the decision is yours. ")
+sm.createQuestWithQRValue(64005, "FoodL=3")
+sm.createQuestWithQRValue(64005, "FoodL=3;FoodM=2")
+sm.createQuestWithQRValue(64005, "FoodL=3;FoodM=2;FoodS=0")
+sm.createQuestWithQRValue(64005, "FoodL=3;FoodM=2;FoodS=0;FoodNone=1")
+sm.createQuestWithQRValue(64007, "happy0=75;happy1=60;happy2=60;happy3=55;man0=56;man1=33;man2=38;man3=73")
+sm.createQuestWithQRValue(64007, "happy0=75;happy1=70;happy2=60;happy3=55;man0=56;man1=33;man2=38;man3=73")
+sm.createQuestWithQRValue(64007, "happy0=75;happy1=70;happy2=70;happy3=55;man0=56;man1=33;man2=38;man3=73")
+sm.createQuestWithQRValue(64007, "happy0=75;happy1=70;happy2=70;happy3=65;man0=56;man1=33;man2=38;man3=73")
+sm.sendNext("#face0#Good. We shall distribute the remaining food. ")
+sm.sendSay("#face0#It seems that everyone is satisfied.")
+sm.createQuestWithQRValue(64006, "WC=2;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk5;Ec=5;weather=2;max=16;food=250")
+sm.createQuestWithQRValue(64007, "happy0=85;happy1=70;happy2=70;happy3=65;man0=56;man1=33;man2=38;man3=73")
+sm.createQuestWithQRValue(64007, "happy0=85;happy1=70;happy2=90;happy3=65;man0=56;man1=33;man2=38;man3=73")
+sm.createQuestWithQRValue(64007, "happy0=85;happy1=70;happy2=90;happy3=95;man0=56;man1=33;man2=38;man3=73")
+sm.createQuestWithQRValue(64006, "WC=2;k1=0;speed=20;man=200;prog=0;Pt=CaravanP1_chk5;Ec=6;weather=2;max=16;food=250")

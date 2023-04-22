@@ -1,0 +1,12 @@
+# id 865030121 (Commerci Republic : Deadly Trap), field 865030121
+sm.startQuest(17666)
+sm.progressMessageFont(3, 20, 20, 0, "EXP and mesos greatly reduced if hunting monsters beyond your level range.")
+sm.startQuest(17666)
+sm.startQuest(17666)
+sm.startQuest(17666)
+sm.startQuest(17666)
+sm.startQuest(17666)
+sm.closeUI(1128)
+sm.startQuest(17666)
+sm.startQuest(17931)
+sm.startQuest(17666)

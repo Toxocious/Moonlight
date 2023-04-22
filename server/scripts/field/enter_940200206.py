@@ -1,0 +1,11 @@
+# id 940200206 (Arcana : Near the Floral Flute), field 940200206
+sm.lockInGameUI(True, False)
+sm.blind(True, 255, 0, 0, 0, 0)
+sm.sendDelay(500)
+sm.moveCamera(True, 0, 0, 0)
+sm.sendDelay(300)
+sm.blind(False, 0, 0, 0, 0, 300)
+sm.sendDelay(300)
+sm.zoomCamera(500, 1000, 2147483647, 2147483647, 2147483647)
+sm.sendDelay(500)
+sm.lockInGameUI(False, True)

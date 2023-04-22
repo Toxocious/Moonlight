@@ -1,0 +1,5 @@
+sm.flipDialoguePlayerAsSpeaker()
+sm.sendNext("Grandis, Interdimensional Portal, another world... This is a lot to take in. But one thing is for sure... I can go back to Maple World! I'm sure Moonbeam was trying to hide that from me.")
+sm.sendSay("But I must go back. I must see my world again. I can't stay here any longer, knowing that it's still out there. But when that's done... I'll come back.")
+sm.sendSay("She's still worried. She worries for me even when she gave me her spirit. The best I can do is try to put her at ease. I'll bring some #r#t4009228##k items.")
+sm.startQuest(parentID)

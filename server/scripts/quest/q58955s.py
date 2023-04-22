@@ -1,0 +1,16 @@
+# id 58955 (Will of the Five Planets), field 811000008
+sm.setSpeakerID(9130104) # Princess Sakuno
+sm.sendNext("...Something very regrettable is happening.")
+sm.setParam(2)
+sm.sendSay("What is it?")
+sm.setParam(0)
+sm.sendSay("An ominous force has come in the wake of Oda Nobunaga and Princess No's attempts to cross dimensions. At this rate, we may be thrown fully into Maple World and disappear. ")
+sm.setParam(2)
+sm.sendSay("Is there any way to stop that from happening?")
+sm.setParam(0)
+sm.sendSay("The Demon King refused to cooperate with Princess No, but he also did not return to his domain. To send him back, we must eliminate Princess No, the summoner.")
+sm.sendSay("The will of the five planets sent us a message. This should help us eliminate Princess No.")
+sm.sendSay("Warriors shall inherit Mars's message, Magicians inherit Mercury's, Bowmen inherit Jupiter's, Thieves inherit Venus's, and Pirates inherit Saturn's.")
+sm.sendSay("We now have a solid reason to eliminate Princess No.")
+sm.completeQuestNoCheck(parentID)
+sm.createQuestWithQRValue(18418, "B=35674")

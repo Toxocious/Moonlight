@@ -1,0 +1,21 @@
+# id 867236220 (Abrup Basin : Skuas Castle Tower), field 867236220
+sm.showNpcSpecialActionByTemplateId(9400604, "summon", 0)
+sm.flipNpcByTemplateId(9400604, False)
+sm.lockInGameUI(True, False)
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9400604) # Miner
+sm.sendNext("Ha ha, take that! How you like that mine, huh?")
+sm.showNpcSpecialActionByTemplateId(9400604, "mine", 0)
+sm.showFieldEffect("Map/EffectPL.img/MainStream/Skuas/screenEff/mine", 0)
+sm.showFieldEffect("Map/EffectPL.img/MainStream/Skuas/screenEff/mine2", 0)
+sm.showFieldEffect("Map/EffectPL.img/MainStream/Skuas/screenEff/mine3", 0)
+sm.setInnerOverrideSpeakerTemplateID(9400580) # Alika
+sm.sendSay("#face5##h0#! There's nowhere left to go! Jump off the front, okay? Trust me!")
+sm.forcedInput(1)
+sm.sendDelay(2000)
+sm.blind(True, 255, 0, 0, 0, 350)
+sm.sendDelay(300)
+sm.lockInGameUI(False, True)
+sm.warp(867236250)

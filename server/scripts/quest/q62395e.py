@@ -1,0 +1,1 @@
+sm.completeQuestNoCheck(parentID)

@@ -1,0 +1,17 @@
+# id 17675 ([Commerci Republic] His Circumstances), field 865000000
+sm.setSpeakerID(9390240) # Claire Tremier
+sm.setParam(56)
+sm.setColor(1)
+sm.sendNext("Uh, Miss Claire, can I bother you for a moment?")
+sm.setParam(32)
+sm.sendSay("Oh, you... What is your name?")
+sm.setParam(56)
+sm.sendSay("Sorry, I guess I never introduced myself. I'm #h0#.")
+sm.setParam(32)
+sm.sendSay("I guess not. What do you need from me, #h0#?")
+sm.setParam(56)
+sm.sendSay("Leon asked me to give you this.")
+sm.setParam(32)
+sm.sendSay("Oh, yes, that does look like his brutish scrawl. Thank you very much.")
+sm.completeQuestNoCheck(parentID)
+sm.createQuestWithQRValue(18418, "B=33308")

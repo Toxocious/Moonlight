@@ -1,0 +1,16 @@
+# id 17650 ([Commerci Republic] Troubling Reports), field 865000002
+sm.setSpeakerID(9390203) # Gilberto Daniella
+sm.setParam(2)
+sm.sendNext("Prime Minister, we chased down the pirates.")
+sm.setParam(0)
+sm.sendSay("Welcome back. I am pleased to see you unharmed. This means your mission was successful?")
+sm.setParam(2)
+sm.sendSay("Yes... sort of. Mostly. Leon and I were able to take down the pirates, with some help.")
+sm.setParam(0)
+sm.sendSay("Good, good. The open sea lanes are important for this city.")
+sm.setParam(2)
+sm.sendSay("Are you feeling okay, Prime Minister? Is that Heaven Empire business bothering you?")
+sm.setParam(0)
+sm.sendSay("You've heard? Rumor moves swiftly in Commerci. Yes, the Heaven Empire's visit troubles me.")
+sm.completeQuestNoCheck(parentID)
+sm.createQuestWithQRValue(18418, "B=33280")

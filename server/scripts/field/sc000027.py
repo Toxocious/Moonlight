@@ -1,0 +1,15 @@
+# id 811000027 (West Tower Central Shrine : Inside West Tower Central Shrine 2), field 811000027
+sm.showNpcSpecialActionByTemplateId(9130119, "summon", 0)
+sm.lockInGameUI(True, True)
+sm.setSpeakerType(3)
+sm.setParam(5)
+sm.setInnerOverrideSpeakerTemplateID(9130119) # Renka
+sm.sendNext("......")
+sm.sendSay("......")
+sm.setParam(17)
+sm.sendSay("Who is this girl? Why is she just standing there? ")
+sm.setParam(5)
+sm.sendSay("Enough!")
+sm.lockInGameUI(False, True)
+sm.closeUI(1128)
+sm.createQuestWithQRValue(58973, "m035=clear;dr1=clear;m037=clear;m038=clear;m039=clear")

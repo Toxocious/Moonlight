@@ -1,0 +1,11 @@
+# id 34205 ([Chu Chu] Follow Your Nose), field 450002000
+sm.setSpeakerType(3)
+sm.setParam(2)
+sm.sendNext("#bMuto#k has the tastes of a human... Their food will never get him to move.")
+sm.sendSay("But the only way I can get to the Black Mage is if #bMuto#k moves...")
+sm.sendSay("My s-stomach! I'm too hungry to think...")
+sm.sendSay("As hungry as I am... I can't eat their terrible food. Sigh...")
+sm.sendSay("W-wait... (Sniffs) Where is that delicious aroma coming from?!")
+sm.sendSay("Maybe I'll find something to eat real quick. I can't fight the Black Mage on an empty stomach!")
+sm.sendSay("Hm... It seems like that smell's coming from the #btop right#k... I should follow it!")
+sm.startQuest(parentID)

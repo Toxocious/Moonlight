@@ -1,0 +1,15 @@
+# id 865030111 (Commerci Republic : Assassins's Den Interior), field 865030111
+sm.lockInGameUI(True, False)
+sm.forcedInput(0)
+sm.setSpeakerType(3)
+sm.setParam(4)
+sm.setInnerOverrideSpeakerTemplateID(9010000) # Maple Administrator
+res = sm.sendAskYesNo("Would you like to skip the cutscenes?")
+sm.createQuestWithQRValue(18418, "B=33295")
+sm.lockInGameUI(False, True)
+sm.showNpcSpecialActionByTemplateId(9390236, "summon", 0)
+sm.showNpcSpecialActionByTemplateId(9390237, "summon", 0)
+sm.showNpcSpecialActionByTemplateId(9390238, "summon", 0)
+sm.showNpcSpecialActionByTemplateId(9390218, "summon", 0)
+sm.completeQuestNoCheck(17664)
+sm.createQuestWithQRValue(18418, "B=33296")

@@ -1,0 +1,107 @@
+# id 867202303 (Abrup Basin : Skuas), field 867202303
+sm.lockInGameUI(True, False)
+sm.createQuestWithQRValue(18790, "mod=30894647101;lastTime=190622202836;damage=4590864058308;coin=0")
+sm.createQuestWithQRValue(18098, "lastTime=190623133603;coin=35")
+sm.createQuestWithQRValue(18098, "lastTime=190623133603;coin=39")
+sm.spawnNpc(9400592, -565, -75)
+sm.showNpcSpecialActionByTemplateId(9400592, "summon", 0)
+sm.startQuest(64167)
+sm.spawnNpc(9400596, -620, -75)
+sm.showNpcSpecialActionByTemplateId(9400596, "summon", 0)
+sm.spawnNpc(9400589, 150, -180)
+sm.showNpcSpecialActionByTemplateId(9400589, "summon", 0)
+sm.spawnNpc(9400635, 240, -180)
+sm.showNpcSpecialActionByTemplateId(9400635, "summon", 0)
+sm.spawnNpc(9400636, 303, -180)
+sm.showNpcSpecialActionByTemplateId(9400636, "summon", 0)
+sm.setSpeakerType(3)
+sm.setParam(37)
+sm.setColor(1)
+sm.setInnerOverrideSpeakerTemplateID(9400581) # Butler
+sm.sendNext("#face0#What is your next move? ")
+sm.setParam(57)
+sm.sendSay("#bAs we discussed before, we should block the path to the castle and repair the walls as best we can. ")
+sm.setParam(37)
+sm.sendSay("#face0#Good. As for the roadblock... ")
+sm.sendDelay(1000)
+sm.moveNpcByTemplateId(9400589, True, 220, 80)
+sm.sendDelay(1000)
+sm.setInnerOverrideSpeakerTemplateID(9400589) # Peytour
+sm.sendNext("#face0#We've got plenty of options for those all around us. ")
+sm.setInnerOverrideSpeakerTemplateID(9400580) # Alika
+sm.sendSay("#face0#Wood! ")
+sm.setParam(57)
+sm.sendSay("#bWood! ")
+sm.setParam(37)
+sm.setInnerOverrideSpeakerTemplateID(9400589) # Peytour
+sm.sendSay("#face0#That's my specialty. ")
+sm.setParam(57)
+sm.sendSay("#bI'd feel better about this if you came with us, Peytour. ")
+sm.setParam(37)
+sm.setInnerOverrideSpeakerTemplateID(9400581) # Butler
+sm.sendSay("#face0#Good, then I'll leave you to it. ")
+sm.sendDelay(1000)
+sm.moveNpcByTemplateId(9400592, False, 50, 30)
+sm.sendDelay(1000)
+sm.setInnerOverrideSpeakerTemplateID(9400592) # Aruhi
+sm.sendNext("#face0#...I-I'm good with an axe too! ")
+sm.setInnerOverrideSpeakerTemplateID(9400589) # Peytour
+sm.sendSay("#face0#That's true, I recall you helping me with some woodcutting before. ")
+sm.sendDelay(1000)
+sm.moveNpcByTemplateId(9400596, False, 50, 30)
+sm.sendDelay(1000)
+sm.setInnerOverrideSpeakerTemplateID(9400596) # Snowfield Archer
+sm.sendNext("I'm coming too! You'll need someone to watch your backs. ")
+sm.sendDelay(1000)
+sm.moveNpcByTemplateId(9400635, True, 100, 70)
+sm.sendDelay(1000)
+sm.setInnerOverrideSpeakerTemplateID(9400603) # Guard
+sm.sendNext("I know this forest well, so I'll lead the way! ")
+sm.sendDelay(1000)
+sm.setInnerOverrideSpeakerTemplateID(9400581) # Butler
+sm.sendNext("#face0#With such a large party, there should be nothing to worry about. ")
+sm.setInnerOverrideSpeakerTemplateID(9400597) # Gurnardson
+sm.sendSay("#face0#Going back to the forest? Are you out of your minds?!")
+sm.setInnerOverrideSpeakerTemplateID(9400598) # Thorson
+sm.sendSay("... ")
+sm.sendDelay(500)
+sm.moveNpcByTemplateId(9400636, False, 30, 30)
+sm.sendDelay(500)
+sm.setInnerOverrideSpeakerTemplateID(9400603) # Guard
+sm.sendNext("I... I should get back to guarding the wall...")
+sm.setParam(57)
+sm.sendSay("#bWell, that's important too. Thanks for your help, everyone. ")
+sm.sendSay("#bWith so many people helping us, we'll be done in a flash! ")
+sm.setParam(37)
+sm.setInnerOverrideSpeakerTemplateID(9400581) # Butler
+sm.sendSay("#face0#Good. Get to it, then. ")
+sm.setInnerOverrideSpeakerTemplateID(9400582) # Cayne
+sm.sendSay("#face0#You're not coming with us, Vice Captain Butler? ")
+sm.setInnerOverrideSpeakerTemplateID(9400581) # Butler
+sm.sendSay("#face0#I have an urgent matter to attend to. You have all the help you need already, I'd say. ")
+sm.setParam(57)
+sm.sendSay("#bCayne, we have enough people. Let's be on our way. ")
+sm.setParam(37)
+sm.setInnerOverrideSpeakerTemplateID(9400580) # Alika
+sm.sendSay("#face0#Come back safe, #h0#. ")
+sm.setInnerOverrideSpeakerTemplateID(9400582) # Cayne
+sm.sendSay("#face0#...I need to stay with Alika, so I won't be able to help you. I'm sorry, #h0#. ")
+sm.setParam(57)
+sm.sendSay("#bNo, don't worry about it. That's your job, Cayne. ")
+sm.setParam(37)
+sm.sendSay("#face0#So you're going out to catch an Eyeful in a hollow tree, right? ")
+sm.sendSay("#face1#...There was a reason they became thieves, huh? ")
+sm.setParam(57)
+sm.sendSay("#bWhat? ")
+sm.setParam(37)
+sm.sendSay("#face0#Never mind. Just be careful out there. ")
+sm.setParam(57)
+sm.sendSay("#bRight, let's go! ")
+sm.setParam(37)
+sm.setInnerOverrideSpeakerTemplateID(9400603) # Guard
+sm.sendSay("Follow me, please! ")
+sm.blind(True, 255, 0, 0, 0, 500)
+sm.sendDelay(500)
+sm.lockInGameUI(False, True)
+sm.startQuest(64107)
+sm.warp(867202600)

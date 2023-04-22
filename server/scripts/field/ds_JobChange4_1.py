@@ -1,0 +1,10 @@
+# 927000100 | demon slayer 4th job adv
+sm.spawnNpc(2159335, 377, 69)
+sm.removeEscapeButton()
+sm.setPlayerAsSpeaker()
+sm.sendNext("#b(I remember the feeling of unleashing my Fury... But I can't hold onto it for long...)")
+sm.spawnMob(9001041, 377, 69, False)
+sm.removeNpc(2159335)
+sm.waitForMobDeath(9001041)
+sm.addQRValue(23206, "1")
+sm.warpInstanceOut(310010000)

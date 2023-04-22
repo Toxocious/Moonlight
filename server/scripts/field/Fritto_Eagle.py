@@ -1,0 +1,1 @@
+# Fritto - Eagle FPS stage

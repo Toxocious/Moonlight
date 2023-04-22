@@ -1,0 +1,16 @@
+from time import sleep
+
+sm.spawnMob(8830003, 412, 258, False)
+sm.spawnMob(8830001, 412, 258, False)
+sm.spawnMob(8830005, 412, 258, False)
+sm.waitForMobDeath(8830001)
+sm.removeMobByTemplateId(8830005)
+sm.spawnMob(8830002, 412, 258, False)
+sm.waitForMobDeath(8830002)
+sm.removeMobByTemplateId(8830003)
+sm.spawnMob(8830000, 412, 258, False)
+sm.waitForMobDeath(8830000)
+sleep(2)
+sm.removeMobByTemplateId(8830004)
+sm.removeMobByTemplateId(8830005)
+sm.dispose()

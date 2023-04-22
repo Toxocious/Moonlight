@@ -1,0 +1,16 @@
+# id 2431769 (Schoolgirls' Note), field 101072700
+sm.createQuestWithQRValue(32158, "female=1;male=1")
+sm.setSpeakerType(3)
+sm.setParam(5)
+sm.setInnerOverrideSpeakerTemplateID(1500030) # Schoolgirls' Note
+sm.sendNext("There are lots of pretty former students, but none of them hold a candle to me.")
+sm.setParam(17)
+sm.sendSay("...This is all useless kid stuff! How many more notes do I have to read?")
+sm.setParam(5)
+sm.sendNext("There are lots of pretty former students, but none of them hold a candle to me.")
+sm.setParam(17)
+sm.sendSay("...This is all useless kid stuff! How many more notes do I have to read?")
+sm.startQuest(32134)
+sm.setQRValue(32134, "1")
+sm.updateQRValue(32134, False)
+sm.consumeItem()
