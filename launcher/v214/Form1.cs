@@ -13,75 +13,54 @@ using Swordie;
 
 namespace SwordieLauncher
 {
+    public struct PROCESS_INFORMATION
+    {
+        public IntPtr hProcess;
+        public IntPtr hThread;
+        public uint dwProcessId;
+        public uint dwThreadId;
+    }
+
+    public struct STARTUPINFO
+    {
+        public uint cb;
+        public string lpReserved;
+        public string lpDesktop;
+        public string lpTitle;
+        public uint dwX;
+        public uint dwY;
+        public uint dwXSize;
+        public uint dwYSize;
+        public uint dwXCountChars;
+        public uint dwYCountChars;
+        public uint dwFillAttribute;
+        public uint dwFlags;
+        public short wShowWindow;
+        public short cbReserved2;
+        public IntPtr lpReserved2;
+        public IntPtr hStdInput;
+        public IntPtr hStdOutput;
+        public IntPtr hStdError;
+    }
+
+    public struct SECURITY_ATTRIBUTES
+    {
+        public int length;
+        public IntPtr lpSecurityDescriptor;
+        public bool bInheritHandle;
+    }
+
     public partial class Form1 : Form
     {
-        private Client client;
+        private readonly Client client;
 
-        public Form1()
-        {
-            InitializeComponent();
-            this.client = new Client();
-            this.client.Connect();
-        }
-
-        private void LoginButton_Click(object sender, EventArgs e)
-        {
-            LaunchMapleAsync();
-        }
-
-
-
-        private static String sDllPath = "v214_local.dll"; // dll name
-
-
-        private static uint CREATE_SUSPENDED = 0x00000004;
-
-        public struct PROCESS_INFORMATION
-        {
-            public IntPtr hProcess;
-            public IntPtr hThread;
-            public uint dwProcessId;
-            public uint dwThreadId;
-        }
-
-
-        public struct STARTUPINFO
-        {
-            public uint cb;
-            public string lpReserved;
-            public string lpDesktop;
-            public string lpTitle;
-            public uint dwX;
-            public uint dwY;
-            public uint dwXSize;
-            public uint dwYSize;
-            public uint dwXCountChars;
-            public uint dwYCountChars;
-            public uint dwFillAttribute;
-            public uint dwFlags;
-            public short wShowWindow;
-            public short cbReserved2;
-            public IntPtr lpReserved2;
-            public IntPtr hStdInput;
-            public IntPtr hStdOutput;
-            public IntPtr hStdError;
-        }
-
-
-
-        public struct SECURITY_ATTRIBUTES
-        {
-            public int length;
-            public IntPtr lpSecurityDescriptor;
-            public bool bInheritHandle;
-
-        }
+        private readonly static uint CREATE_SUSPENDED = 0x00000004;
+        private readonly static String sDllPath = "Moonlight.dll";
 
         [DllImport("kernel32.dll")]
         static extern bool CreateProcess(string lpApplicationName, string lpCommandLine, IntPtr lpProcessAttributes, IntPtr lpThreadAttributes,
                         bool bInheritHandles, uint dwCreationFlags, IntPtr lpEnvironment,
                         string lpCurrentDirectory, ref STARTUPINFO lpStartupInfo, out PROCESS_INFORMATION lpProcessInformation);
-
 
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern uint ResumeThread(IntPtr hThread);
@@ -108,10 +87,23 @@ namespace SwordieLauncher
         static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttribute, IntPtr dwStackSize, IntPtr lpStartAddress,
             IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
 
+        public Form1()
+        {
+            InitializeComponent();
+
+            this.client = new Client();
+            this.client.Connect();
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            LaunchMapleAsync();
+        }
 
         private static int GetProcessId(String proc)
         {
             int processID = -1;
+
             Process[] processes = Process.GetProcesses();
             for (int i = 0; i < processes.Length; i++)
             {
@@ -125,7 +117,6 @@ namespace SwordieLauncher
 
             return processID;
         }
-
 
         private static int Inject(String exe, String dllPath)
         {
@@ -176,17 +167,18 @@ namespace SwordieLauncher
             STARTUPINFO si = new STARTUPINFO();
             PROCESS_INFORMATION pi = new PROCESS_INFORMATION();
 
-
             string text1 = this.usernameTextBox.Text;
             string text2 = this.passwordTextBox.Text;
             this.passwordTextBox.Clear();
+
             string token = await this.GetToken(text1, text2);
             bool flag = !token.Equals("");
+
             if (flag)
+            {
                 try
                 {
                     bool bCreateProc = CreateProcess("MapleStory.exe", $" WebStart {token}", IntPtr.Zero, IntPtr.Zero, false, CREATE_SUSPENDED, IntPtr.Zero, null, ref si, out pi);
-                   
 
                     if (bCreateProc)
                     {
@@ -204,40 +196,33 @@ namespace SwordieLauncher
                         }
                     }
                 }
-
                 catch (Exception ex)
                 {
                     int num = (int)MessageBox.Show("Could not start! Make sure the file is in your game folder and that this program is ran as admin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
-        
-        else
+            }
+            else
             {
                 int num1 = (int)MessageBox.Show("Invalid username/password combination.");
-    }
+            }
+
             return flag;
         }
 
-
-
-
-public void Run()
+        public void Run()
         {
-
             LaunchMapleAsync();
-
         }
 
-
-
-
-
-    private async Task<bool> authAndStuff()
+        private async Task<bool> authAndStuff()
         {
             string text1 = this.usernameTextBox.Text;
             string text2 = this.passwordTextBox.Text;
             this.passwordTextBox.Clear();
+
             string token = await this.GetToken(text1, text2);
             bool flag = !token.Equals("");
+
             if (flag)
             {
                 try
@@ -259,6 +244,7 @@ public void Run()
             {
                 int num1 = (int)MessageBox.Show("Invalid username/password combination.");
             }
+
             return flag;
         }
 

@@ -7,12 +7,16 @@ namespace Swordie
 {
     public class Client
     {
-        private static ManualResetEvent connectDone = new ManualResetEvent(false);
-        private static ManualResetEvent sendDone = new ManualResetEvent(false);
-        private static ManualResetEvent receiveDone = new ManualResetEvent(false);
-        private int PORT = 8483;
-        private string HOST = "127.0.0.1"; // put server ip here
         public Socket socket;
+
+        private static readonly ManualResetEvent connectDone = new ManualResetEvent(false);
+        private static readonly ManualResetEvent sendDone = new ManualResetEvent(false);
+        private static readonly ManualResetEvent receiveDone = new ManualResetEvent(false);
+
+        // Server IP
+        private readonly string HOST = "127.0.0.1";
+        // Server Port
+        private readonly int PORT = 3306;
 
         public void Connect()
         {
