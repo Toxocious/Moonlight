@@ -1,0 +1,66 @@
+name: Bug Report
+description: Open a bug report to help us improve the code-base and user-experience.
+title: "[Bug]: "
+labels: ["bug"]
+assignees:
+  - toxocious
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We appreciate you taking the time to fill out a bug report.
+  - type: textarea
+    id: describe-the-issue
+    attributes:
+      label: Describe The Issue
+      description: Give us a clear and concise description of what the issue is.
+      placeholder: What happened was..
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected Behaviour
+      description: Give us a clear and concise description of what you expected to happen.
+      placeholder: I was expecting..
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps To Reproduce
+      description: Tell us how how we could reproduce the issue that you had.
+      placeholder: First, you.. After that, you would..
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Please provide as much additional information about the bug you've encountered and your desktop/mobile environment as possible.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        examples:
+          - **OS**: Windows 10
+          - **Time**: June 9 2023 4:20 PM PST
+      value: |
+          - OS:
+          - Time:
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    id: anything-else
+    attributes:
+      label: Anything Else
+      description: |
+        Links? Pictures? Anything that will give us more context about the issue you are encountering!
+
+        Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false
