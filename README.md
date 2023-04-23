@@ -36,6 +36,7 @@ I do not guarantee that this will go anywhere, but I hope that it does!
 ## Table of Contents
 - [Disclaimer](#disclaimer)
 - [Table of Contents](#table-of-contents)
+- [Environment Variables](#environment-variables)
 - [Server Source Code](#server-source-code)
 - [Auth Hook Source Code](#auth-hook-source-code)
 - [Launcher Source Code](#launcher-source-code)
@@ -43,6 +44,11 @@ I do not guarantee that this will go anywhere, but I hope that it does!
   - [General Stance](#general-stance)
 - [License](#license)
 
+
+
+## Environment Variables
+Some aspects of the code-base relies on a filled out `.env` file.
+Be sure to look at the `.env.local` file for what a valid example looks like.
 
 
 ## Server Source Code

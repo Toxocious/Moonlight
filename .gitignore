@@ -1,3 +1,6 @@
+## Ignore non-local env files
+.env
+
 ## Ignore ./auth_hook compiled files
 auth_hook/ijl15.dll
 auth_hook/ijl15.pdb

@@ -24,7 +24,7 @@
 
 
 
-## Disclaimer
+# Disclaimer
 I'm extremely interested in learning about the development of private servers, including client edits, wz editing, and server-sided security to deter hackers and client/wz editors.
 
 I do not guarantee that this will go anywhere, but I hope that it does!
@@ -33,7 +33,7 @@ I do not guarantee that this will go anywhere, but I hope that it does!
 
 
 
-## Table of Contents
+# Table of Contents
 - [Disclaimer](#disclaimer)
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
@@ -42,6 +42,7 @@ I do not guarantee that this will go anywhere, but I hope that it does!
 - [Getting Started](#getting-started)
 - [Compiling](#compiling)
   - [Server](#server)
+    - [Database Set-up](#database-set-up)
   - [Server Authentication Hook](#server-authentication-hook)
   - [Server Launcher](#server-launcher)
 - [Contributing](#contributing)
@@ -50,32 +51,40 @@ I do not guarantee that this will go anywhere, but I hope that it does!
 
 
 
-## About The Project
-### Tech Stack
+# About The Project
+## Tech Stack
 Work in progress~
 
-### Dependencies
-Work in progress~
-
-
-
-## Getting Started
-Work in progress~
-
-## Compiling
-### Server
-Work in progress~
-
-### Server Authentication Hook
-Work in progress~
-
-### Server Launcher
+## Dependencies
 Work in progress~
 
 
 
-## Contributing
-### General Stance
+# Getting Started
+Work in progress~
+
+# Compiling
+## Server
+Work in progress~
+
+### Database Set-up
+A very simple bash script has been included to handle the initial database creation and table importing for you.
+
+Simply run the `./init_database.sh` script inside of this directory to get your database set-up.
+
+
+## Server Authentication Hook
+Work in progress~
+
+
+
+## Server Launcher
+Work in progress~
+
+
+
+# Contributing
+## General Stance
 In general, we welcome pull requests that fix bugs or builds upon an existing feature.
 
 1. Fork the Project
@@ -86,7 +95,7 @@ In general, we welcome pull requests that fix bugs or builds upon an existing fe
 
 
 
-## License
+# License
 This project is licensed under GNU GPL 3.
 
 For more information about the license, check out the [LICENSE](LICENSE).
