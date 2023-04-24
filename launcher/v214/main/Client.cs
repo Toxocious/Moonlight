@@ -16,7 +16,7 @@ namespace Swordie
         // Server IP
         private readonly string HOST = "127.0.0.1";
         // Server Port
-        private readonly int PORT = 3306;
+        private readonly int PORT = 8483;
 
         public void Connect()
         {
