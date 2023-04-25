@@ -8,7 +8,7 @@ import net.swordie.ms.enums.WorldId;
 public class ServerConfig {
 
     public static final int USER_LIMIT = 20;
-    public static final WorldId WORLD_ID = WorldId.Tespia;
+    public static final WorldId WORLD_ID = WorldId.Bera;
     public static final String SERVER_NAME = "Moonlight";
     public static String SERVER_MSG = "v214";
     public static final String EVENT_MSG = String.format("#bv214#k       Buffed Channels 6-10\r\n                Online Players: ");
