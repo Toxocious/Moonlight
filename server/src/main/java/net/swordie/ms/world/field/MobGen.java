@@ -37,19 +37,27 @@ public class MobGen extends Life {
     public void spawnMob(Field field, boolean buffed) {
         Mob mob = getMob().deepCopy();
         if (!field.getNoRespawn().contains(mob.getTemplateId())) {
-        if (buffed && !mob.isBoss()) {
-            int prefix = field.getId() / 1000000;
-            mob.buff(MobConstants.getBuffMultiplierFromRegion(prefix));
-        }        
-        Position pos = mob.getHomePosition();
-        mob.setPosition(pos.deepCopy());
-        mob.setHomePosition(pos.deepCopy());
-        field.spawnLife(mob, null);
-        if (CustomConstants.AUTO_AGGRO) {
-            field.broadcastPacket(MobPool.forceChase(mob.getObjectId(), false));
-        }
-        setNextPossibleSpawnTime(System.currentTimeMillis() + (getMob().getMobTime() * 1000));
-        setHasSpawned(true);
+            if (buffed && !mob.isBoss()) {
+                int prefix = field.getId() / 1000000;
+                mob.buff(MobConstants.getBuffMultiplierFromRegion(prefix));
+            }
+
+            Position pos = mob.getHomePosition();
+            mob.setPosition(pos.deepCopy());
+            mob.setHomePosition(pos.deepCopy());
+
+            field.spawnLife(mob, null);
+
+            field.broadcastPacket(
+                MobPool.forceChase(mob.getObjectId(), CustomConstants.AUTO_AGGRO)
+            );
+
+            setNextPossibleSpawnTime(
+                System.currentTimeMillis() +
+                (getMob().getMobTime() * GameConstants.BASE_MOB_RESPAWN_RATE)
+            );
+
+            setHasSpawned(true);
         }
     }
 

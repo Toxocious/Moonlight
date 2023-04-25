@@ -76,8 +76,8 @@ public class GameConstants {
     public static final int ARDENTMILL = 910001000;
     public static final int FOREST_OF_TENACITY = 993001000;
     public static final int DEFAULT_FIELD_MOB_CAPACITY = 25;
-    public static final double DEFAULT_FIELD_MOB_RATE_BY_MOBGEN_COUNT = 1.5;
-    public static final int BASE_MOB_RESPAWN_RATE = 2500; // In milliseconds
+    public static final double DEFAULT_FIELD_MOB_RATE_BY_MOBGEN_COUNT = 2;
+    public static final int BASE_MOB_RESPAWN_RATE = 500; // In milliseconds
     public static final double KISHIN_MOB_MULTIPLIER = 2;
     public static final double KISHIN_MOB_RATE_MULTIPLIER = 2;
     public static final Rect MOB_CHECK_RECT = new Rect(-100, -100, 100, 100);

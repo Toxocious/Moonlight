@@ -583,14 +583,18 @@ public class Field {
 
     public void spawnLife(Life life, Char onlyChar) {
         addLife(life);
+
         if (getChars().size() > 0) {
             Char controller = null;
+
             if (getLifeToControllers().containsKey(life)) {
                 controller = getLifeToControllers().get(life);
             }
+
             if (controller == null) {
                 setRandomController(life);
             }
+
             life.broadcastSpawnPacket(onlyChar);
         }
     }
@@ -601,10 +605,14 @@ public class Field {
         if (getChars().size() > 0) {
             controller = Util.getRandomFromCollection(getChars());
             life.notifyControllerChange(controller);
-            if (life instanceof Mob && CustomConstants.AUTO_AGGRO) {
-                broadcastPacket(MobPool.forceChase(life.getObjectId(), false));
+
+            if (life instanceof Mob) {
+                broadcastPacket(
+                    MobPool.forceChase(life.getObjectId(), CustomConstants.AUTO_AGGRO)
+                );
             }
         }
+
         putLifeController(life, controller);
     }
 
@@ -1596,6 +1604,7 @@ public class Field {
                 }
             }
         }
+
         // No fixed rate to ensure kishin-ness keeps being checked
         double kishinMultiplier = hasKishin() ? GameConstants.KISHIN_MOB_RATE_MULTIPLIER : 1;
         EventManager.addEvent(() -> generateMobs(false),
