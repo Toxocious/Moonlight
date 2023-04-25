@@ -67,8 +67,8 @@ public class GameConstants {
     }
 
     // Hyper stat
-    public static final int HYPER_SKILL_RESET_COST = 0;
-    public static final long HYPER_STAT_RESET_COST = 0;
+    public static final int[] HYPER_SKILL_RESET_COST = new int[]{100000, 1000000, 2000000, 5000000, 10000000};
+    public static final long HYPER_STAT_RESET_COST = 10000000;
 
     // Field
     public static final int NO_MAP_ID = 999999999;
