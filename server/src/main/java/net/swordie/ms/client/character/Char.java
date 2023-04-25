@@ -2876,14 +2876,19 @@ public class Char {
 
     public void addMoney(long amount, int exclRequest) {
         CharacterStat cs = getAvatarData().getCharacterStat();
+
         long money = cs.getMoney();
         long newMoney = money + amount;
+
         if (newMoney >= 0) {
             newMoney = Math.min(GameConstants.MAX_MONEY, newMoney);
             Map<Stat, Object> stats = new HashMap<>();
             cs.setMoney(newMoney);
             stats.put(Stat.money, newMoney);
             write(WvsContext.statChanged(stats, (byte) exclRequest));
+
+            write(UserPacket.progressMessageFont(ProgressMessageFontType.Normal, 16, ProgressMessageColourType.SkyBlue, 300, String.format("You have gained %,d Mesos.", amount)));
+            write(WvsContext.setMaplePoints(user.getNxPrepaid()));
         }
     }
 
@@ -6169,18 +6174,18 @@ public class Char {
     }
 
     public void addNx(int nx) {
-        User user = getUser();
-        user.addNXPrepaid(nx);
         if (nx != 0) {
+            User user = getUser();
+            user.addNXPrepaid(nx);
             write(UserPacket.progressMessageFont(ProgressMessageFontType.Normal, 16, ProgressMessageColourType.SkyBlue, 300, String.format("You have gained %,d NX.", nx)));
             write(WvsContext.setMaplePoints(user.getNxPrepaid()));
         }
     }
 
     public void deductNX(int nx) {
-        User user = getUser();
-        user.addNXPrepaid(nx);
         if (nx != 0) {
+            User user = getUser();
+            user.addNXPrepaid(nx);
             write(UserPacket.scriptProgressMessage(String.format("You have lost %,d NX.", nx)));
             write(UserPacket.progressMessageFont(ProgressMessageFontType.Normal, 16, ProgressMessageColourType.Red, 300, String.format("You have lost %,d NX.", nx)));
             write(WvsContext.setMaplePoints(user.getNxPrepaid()));
@@ -6189,9 +6194,9 @@ public class Char {
 
     // No idea if this correct
     public void addDP(int dp) {
-        User user = getUser();
-        user.setDonationPoints(dp);
         if (dp != 0) {
+            User user = getUser();
+            user.setDonationPoints(dp);
             write(UserPacket.progressMessageFont(ProgressMessageFontType.Normal, 16, ProgressMessageColourType.White, 300, String.format("You have gained %,d DP.", dp)));
             write(WvsContext.setMaplePoints(user.getDonationPoints()));
         }

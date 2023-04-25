@@ -368,6 +368,7 @@ public class Mob extends Life {
         copy.setBanMsg(getBanMsg());
         copy.setBanMapFields(getBanMapFields());
         copy.isBuffed();
+
         for (MobSkill ms : getSkills()) {
             copy.addSkill(ms);
         }
@@ -1397,6 +1398,7 @@ public class Mob extends Life {
         if (drops) {
             dropDrops(); // xd
         }
+
         for (Char chr : getDamageDone().keySet()) {
             chr.getQuestManager().handleMobKill(this);
             chr.getTemporaryStatManager().addSoulMPFromMobDeath();
@@ -1404,8 +1406,10 @@ public class Mob extends Life {
                 chr.getAccount().getMonsterCollection().addMobAndUpdateClient(getTemplateId(), chr);
             }
         }
+
         getField().broadcastPacket(MobPool.leaveField(getObjectId(), DeathType.ANIMATION_DEATH));
         getDamageDone().clear();
+
         if (field.canSpawnElite() && getEliteType() == 0 && !isNotRespawnable() &&
                 Util.succeedProp(GameConstants.ELITE_MOB_SPAWN_CHANCE, 1000)) {
             spawnEliteVersion();
@@ -1445,8 +1449,8 @@ public class Mob extends Life {
         // TEST
         reviveMob();
         for (ScheduledFuture sf : dropItemTimed) {
-	sf.cancel(true);
-	}         
+            sf.cancel(true);
+        }
     }
 
     public void dropDrops() {
@@ -1465,29 +1469,29 @@ public class Mob extends Life {
                 fhID = fhBelow.getId();
             }
         }
+
         Set<DropInfo> dropInfoSet = getDrops();
+
         // Add consumable/equip drops based on min(charLv, mobLv)
         level = Math.min(level, getForcedMobStat().getLevel());
         dropInfoSet.addAll(ItemConstants.getConsumableMobDrops(level));
         dropInfoSet.addAll(ItemConstants.getEquipMobDrops(job, level));
+
         // DropRate & MesoRate Increases
         int mostDamageCharDropRate = getMostDamageChar() != null ? getMostDamageChar().getTotalStat(BaseStat.dropR) : 100;
         int mostDamageCharMesoRate = getMostDamageChar() != null ? getMostDamageChar().getTotalStat(BaseStat.mesoR) : 100;
         int dropRateMob = (getTemporaryStat().hasCurrentMobStat(MobStat.Treasure)
                 ? getTemporaryStat().getCurrentOptionsByMobStat(MobStat.Treasure).yOption
                 : 0); // Item Drop Rate
-        int mesoRateMob = (getTemporaryStat().hasCurrentMobStat(MobStat.Treasure)
-                ? getTemporaryStat().getCurrentOptionsByMobStat(MobStat.Treasure).zOption
-                : 0); // Meso Drop Rate
-        int totalMesoRate = mesoRateMob + mostDamageCharMesoRate * GameConstants.MOB_MESO_RATE;
         int totalDropRate = dropRateMob + mostDamageCharDropRate * GameConstants.MOB_DROP_RATE;
+
         for (Item item : getMostDamageChar().getCashInventory().getItems()) {
             if (ItemConstants.is2XDropCoupon(item.getItemId())) {
                 totalDropRate *= 2;
                 break;
             }
         }
-        getField().drop(getDrops(), getField().getFootholdById(fhID), getPosition(), ownerID, totalMesoRate,
+        getField().drop(getDrops(), getField().getFootholdById(fhID), getPosition(), ownerID, 0,
                 totalDropRate, getExplosiveReward() != 0);
     }
 
@@ -1552,11 +1556,11 @@ public class Mob extends Life {
             eei.setIncEXP(appliedExpPre);
             chr.addExp(appliedExpPost, eei);
 
-            if (Util.succeedProp(GameConstants.NX_DROP_CHANCE)) {
-                int nx = (int) (damagePerc * getNxDropAmount());
-                chr.addNx(nx);
+            // used to have a chance to get NX
+            if (Util.succeedProp(GameConstants.MONEY_DROP_CHANCE)) {
+                int money = (int) (damagePerc * getMesoDropAmount());
+                chr.addMoney(money);
             }
-
 
             Party party = chr.getParty();
             if (party != null) {
@@ -1566,8 +1570,6 @@ public class Mob extends Life {
                 damagePercPerParty.get(party).addDamageInfo(chr, damagePerc);
             }
         }
-
-
 
         for (PartyDamageInfo pdi : damagePercPerParty.values()) {
             pdi.distributeExp();
@@ -2029,19 +2031,17 @@ public class Mob extends Life {
     }
 
     public int getNxDropAmount() {
-        // yuno
-//        if (getExp() == 0) {
-//            return 0;
-//        }
-//        int base = (int) ((Math.sqrt(getMaxHp() / 100D)) * ((double) getMaxHp() / (getExp() * getLevel())));
-//        return Util.getRandom(base, (base + base / 10)); // base + 10% random
-
-
-        // sjonnie
         long hp = getMaxHp();
         ForcedMobStat fms = getForcedMobStat();
         int base = (int) (((fms.getLevel() / 2D) * (Math.pow(hp, (1 / 7D))))) * GameConstants.NX_DROP_MULTIPLIER;
         return Util.getRandom(base, (base + base / 10)); // base + 10% random
+    }
+
+    public int getMesoDropAmount() {
+        return Util.getRandom(
+            GameConstants.MIN_MONEY_MULT * getForcedMobStat().getLevel(),
+            GameConstants.MAX_MONEY_MULT * getForcedMobStat().getLevel()
+        );
     }
 
     public void handleDamageReflect(Char chr, int skillID, long totalDamage) {
@@ -2125,6 +2125,7 @@ public class Mob extends Life {
                 break;
             }
         }
+
         Char controller = getField().getLifeToControllers().getOrDefault(this, null);
         return String.format("Mob ID: %s | Template ID: %s | Level: %d | HP: %s/%s " +
                         "| MP: %s/%s | Left: %s | PDR: %s | MDR: %s " +
