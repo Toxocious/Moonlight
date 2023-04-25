@@ -30,11 +30,11 @@ public class GameConstants {
     public static final int MOB_EXP_RATE = 8;
     public static final int MOB_MESO_RATE = 4;
     public static final int MOB_DROP_RATE = 2;
-    public static final long MAX_MONEY = 999_999_999_999_999L;
+    public static final long MAX_MONEY = 99_999_999_999_999L;
     public static final short DAMAGE_SKIN_MAX_SIZE = 100;
     public static final int MAX_PET_AMOUNT = 3;
     public static final int MAX_HP_MP = 500000;
-    public static final long DAMAGE_CAP = 20_000_000_000L;
+    public static final long DAMAGE_CAP = 1_000_000_000_000L;
     public static final int BEGINNER_SP_MAX_LV = 7;
     public static final int RESISTANCE_SP_MAX_LV = 10;
     public static final int QUICKSLOT_LENGTH = 32;
@@ -67,8 +67,8 @@ public class GameConstants {
     }
 
     // Hyper stat
-    public static final int[] HYPER_SKILL_RESET_COST = new int[]{100000, 1000000, 2000000, 5000000, 10000000};
-    public static final long HYPER_STAT_RESET_COST = 10000000;
+    public static final int HYPER_SKILL_RESET_COST = 0;
+    public static final long HYPER_STAT_RESET_COST = 0;
 
     // Field
     public static final int NO_MAP_ID = 999999999;
@@ -98,6 +98,7 @@ public class GameConstants {
     public static final int DROP_DIFF = 25;
     public static final int DROP_REMAIN_ON_GROUND_TIME = 120; // 2 minutes
     public static final int DROP_REMOVE_OWNERSHIP_TIME = 30; // 30 sec
+    public static final int MONEY_DROP_CHANCE = 50; // out of 100
     public static final int MIN_MONEY_MULT = 6;
     public static final int MAX_MONEY_MULT = 9;
     public static final int MAX_DROP_CHANCE = 10000;

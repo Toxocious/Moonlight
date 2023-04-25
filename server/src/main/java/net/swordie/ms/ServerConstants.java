@@ -25,7 +25,7 @@ public class ServerConstants {
 	public static final short CHAT_PORT = 0;
 	public static final int BCRYPT_ITERATIONS = 10;
 	public static final long TOKEN_EXPIRY_TIME = 60 * 24; // minutes
-	public static boolean LOCAL_HOST_SERVER = false;
+	public static boolean LOCAL_HOST_SERVER = true;
 	public static final int RESTART_MINUTES = (int) getTimeTillMidnight();
 	public static final boolean DAILY_RESTART = false;
 

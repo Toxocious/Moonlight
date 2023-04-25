@@ -26,7 +26,7 @@ public class CustomConstants {
     public static final int BUFFED_MOB_SCALE = 120; //Default scale is 100
     public static final int BUFFED_MOB_DAMAGE_MULTIPLIER = 10;
 
-    public static final boolean AUTO_AGGRO = false;
+    public static final boolean AUTO_AGGRO = true;
     public static final int EXTRA_MOB_SPEED = 80;
     public static final int AFK_TIMEOUT = 1000 * 300; //5 minutes
     public static final int DOJO_MAPS_PREFFIX = 925;
