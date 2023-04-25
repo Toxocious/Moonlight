@@ -6805,12 +6805,14 @@ public class Char {
 
 
     public void giveStartingItems() {
-        addHotTimeReward(2436226, HotTimeRewardType.GAME_ITEM, 1, 0, 0,0,"A gift from the Admin of v214.");
-        addHotTimeReward(2436226, HotTimeRewardType.MESO, 1, 10000000,0, 0,"A gift from the Admin of v214.");
-        addHotTimeReward(2436226, HotTimeRewardType.EXPERIENCE, 1, 0, 1000,0,"A gift from the Admin of v214.");
-        addHotTimeReward(2436226, HotTimeRewardType.MAPLE_POINT, 1, 0, 0,10000,"A gift from the Admin of v214.");
-        addHotTimeReward(5002142, HotTimeRewardType.GAME_ITEM, 1, 0, 0,0,"A gift from the Admin of v214.");
+        // 2x Exp Coupon (1hr)
+        addHotTimeReward(5680342, HotTimeRewardType.GAME_ITEM, 1, 0, 0, 0, "Welcome to Moonlight!");
 
+        // 2x Drop Coupon (1hr)
+        addHotTimeReward(2023676, HotTimeRewardType.GAME_ITEM, 1, 0, 0, 0, "Welcome to Moonlight!");
+
+        // Permanent pet
+        addHotTimeReward(2436226, HotTimeRewardType.GAME_ITEM, 1, 0, 0,0,"Welcome to Moonlight!.");
     }
 
     public List<HotTimeReward> getHotTimeRewards() {
