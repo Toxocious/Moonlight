@@ -39,6 +39,7 @@ I do not guarantee that this will go anywhere, but I hope that it does!
 - [Environment Variables](#environment-variables)
 - [Server Source Code](#server-source-code)
 - [Auth Hook Source Code](#auth-hook-source-code)
+- [Redirector Source Code](#redirector-source-code)
 - [Launcher Source Code](#launcher-source-code)
 - [Contributing](#contributing)
   - [General Stance](#general-stance)
@@ -57,6 +58,10 @@ You can find the source code for the server in the [server](./server) directory.
 
 ## Auth Hook Source Code
 You can find the source code for the server auth hook in the [auth_hook](./auth_hook) directory.
+
+## Redirector Source Code
+You can find the source code for the client's redirector code in the [redirector](./redirector) directory.
+
 
 ## Launcher Source Code
 You can find the source code and applicable README for the custom launcher in the [launcher](./launcher) directory.

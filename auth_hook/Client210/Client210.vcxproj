@@ -44,11 +44,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>ijl15</TargetName>
+    <TargetName>Moonlight</TargetName>
     <OutDir>C:\Nexon\v219.3</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>ijl15</TargetName>
+    <TargetName>Moonlight</TargetName>
     <OutDir>..</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

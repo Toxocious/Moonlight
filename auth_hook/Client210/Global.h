@@ -13,17 +13,17 @@
 
 //---------------------------------------------------------------------------------------------
 
-#define OPT_APPNAME			"v214"
-#define OPT_APPVERSION		"1.0"
-#define OPT_ADDR_HOSTNAME	"127.0.0.1"
+#define OPT_APPNAME "Moonlight v214"
+#define OPT_APPVERSION "1.0"
+#define OPT_ADDR_HOSTNAME "127.0.0.1"
 
-#define OPT_ADDR_SEARCH		"8.31.99."
-#define OPT_ADDR_NEXON		"175.207.3.211"
+#define OPT_ADDR_SEARCH "8.31.99."
+#define OPT_ADDR_NEXON "175.207.3.211"
 
-#define OPT_PORT_LOW		8484
-#define OPT_PORT_HIGH		8989
+#define OPT_PORT_LOW 8484
+#define OPT_PORT_HIGH 8989
 
-#define CLIENT_ID	0
+#define CLIENT_ID 0
 
 //---------------------------------------------------------------------------------------------
 
@@ -32,11 +32,11 @@ void FuckMaple();
 bool HookNMCO();
 bool HookWinApi();
 bool HookSockApi();
-//bool HookCRC();
+// bool HookCRC();
 
 //---------------------------------------------------------------------------------------------
 
-void Log(const char* format, ...);
+void Log(const char *format, ...);
 
 void PatchJmp(DWORD dwAddress, DWORD dwDest);
 void PatchRetZero(DWORD dwAddress);
@@ -51,20 +51,20 @@ void PatchUnlimitedAttack(DWORD dwAddress);
 
 DWORD GetFuncAddress(LPCSTR lpModule, LPCSTR lpFunc);
 
-BOOL SetHook(BOOL bInstall, PVOID* ppvTarget, PVOID pvDetour);
+BOOL SetHook(BOOL bInstall, PVOID *ppvTarget, PVOID pvDetour);
 
 //---------------------------------------------------------------------------------------------
 
 struct Application
 {
-    struct IDiscordCore* core;
-    struct IDiscordUserManager* users;
-    struct IDiscordAchievementManager* achievements;
-    struct IDiscordActivityManager* activities;
-    struct IDiscordRelationshipManager* relationships;
-    struct IDiscordApplicationManager* application;
-    struct IDiscordLobbyManager* lobbies;
+    struct IDiscordCore *core;
+    struct IDiscordUserManager *users;
+    struct IDiscordAchievementManager *achievements;
+    struct IDiscordActivityManager *activities;
+    struct IDiscordRelationshipManager *relationships;
+    struct IDiscordApplicationManager *application;
+    struct IDiscordLobbyManager *lobbies;
     DiscordUserId user_id;
 };
 
-void UpdateActivityCallback(void* data, EDiscordResult result);
+void UpdateActivityCallback(void *data, EDiscordResult result);
