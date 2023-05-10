@@ -9,6 +9,7 @@ import net.swordie.ms.util.Util;
 public enum ApiOutHeader {
     REQUEST_TOKEN_RESULT(100),
     CREATE_ACCOUNT_RESULT(101),
+    CHECK_FILE_CHECKSUM_RESULT(102),
     ;
 
     private int val;

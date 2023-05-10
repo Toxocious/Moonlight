@@ -29,7 +29,6 @@ public class ApiEncoder extends MessageToByteEncoder<Packet> {
 
             bb.writeInt(data.length);
             bb.writeBytes(data);
-
         } else {
             log.debug("[PacketEncoder] | Plain sending " + outPacket);
             bb.writeBytes(data);

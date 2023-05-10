@@ -4,6 +4,7 @@ import net.swordie.ms.connection.OutPacket;
 import net.swordie.ms.connection.api.ApiOutHeader;
 import net.swordie.ms.enums.AccountCreateResult;
 import net.swordie.ms.enums.ApiTokenResultType;
+import net.swordie.ms.enums.FileChecksumResult;
 import net.swordie.ms.handlers.ApiRequestHandler;
 
 /**
@@ -27,7 +28,14 @@ public class ApiResponse {
         OutPacket outPacket = new OutPacket(ApiOutHeader.CREATE_ACCOUNT_RESULT);
 
         outPacket.encodeByte(acr.ordinal());
-//work?
+        //work?
+        return outPacket;
+    }
+
+    public static OutPacket checkFileChecksumResult(FileChecksumResult fcr) {
+        OutPacket outPacket = new OutPacket(ApiOutHeader.CHECK_FILE_CHECKSUM_RESULT);
+        outPacket.encodeByte(fcr.ordinal());
+
         return outPacket;
     }
 }

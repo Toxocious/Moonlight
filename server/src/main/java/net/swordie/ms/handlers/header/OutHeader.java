@@ -2139,6 +2139,7 @@ public enum OutHeader {
     // CField::OnPacket v210?
     UNK204_2042(-1),
 
+    CHECK_FILE_CHECKSUM(9998),
 
     NO(9999),
     ;

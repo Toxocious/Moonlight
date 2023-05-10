@@ -25,19 +25,27 @@ public class ApiHandler extends SimpleChannelInboundHandler<InPacket> {
         Client c = (Client) ctx.channel().attr(CLIENT_KEY).get();
         short op = inPacket.decodeShort();
         ApiInHeader opHeader = ApiInHeader.getByVal(op);
-        if(opHeader == null) {
+
+        if (opHeader == null) {
             handleUnknown(inPacket, op);
             return;
         }
+
         if(!InHeader.isSpamHeader(InHeader.getInHeaderByOp(op))) {
             log.debug(String.format("[API In]\t| %s, %d/0x%s\t| %s", InHeader.getInHeaderByOp(op), op, Integer.toHexString(op).toUpperCase(), inPacket));
         }
+
         switch (opHeader) {
             case REQUEST_TOKEN:
                 ApiRequestHandler.handleTokenRequest(c, inPacket);
                 break;
+
             case CREATE_ACCOUNT_REQUEST:
                 ApiRequestHandler.handleCreateAccountRequest(c, inPacket);
+                break;
+
+            case CHECK_FILE_CHECKSUM:
+                ApiRequestHandler.handleCheckFileChecksum(c, inPacket);
                 break;
         }
     }
