@@ -19,7 +19,6 @@ import static net.swordie.ms.connection.netty.NettyClient.CLIENT_KEY;
  * Created on 10/5/2018.
  */
 public class ApiAcceptor implements Runnable {
-
     private static final Logger log = Logger.getLogger(ApiAcceptor.class);
 
     @Override

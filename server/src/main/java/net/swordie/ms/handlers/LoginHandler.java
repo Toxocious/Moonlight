@@ -59,7 +59,6 @@ import org.apache.log4j.Logger;
 public class LoginHandler {
     private static final org.apache.log4j.Logger log = LogManager.getRootLogger();
 
-
     @Handler(op = InHeader.PERMISSION_REQUEST)
     public static void handlePermissionRequest(Client c, InPacket inPacket) {
         byte locale = inPacket.decodeByte();
@@ -71,7 +70,7 @@ public class LoginHandler {
         }
     }
 
-        @Handler(op = InHeader.USE_AUTH_SERVER)
+    @Handler(op = InHeader.USE_AUTH_SERVER)
     public static void handleAuthServer(Client client, InPacket inPacket) {
            // client.write(Login.sendAuthServer(false));
     }
@@ -151,20 +150,23 @@ public class LoginHandler {
         c.write(Login.checkPasswordResult(success, result, user));
     }
 
-        @Handler(ops = {InHeader.WORLD_INFO_REQUEST, InHeader.WORLD_LIST_REQUEST})
+    @Handler(ops = {InHeader.WORLD_INFO_REQUEST, InHeader.WORLD_LIST_REQUEST})
     public static void handleWorldListRequest(Client c, InPacket inPacket) {
         if (c.getAccount() != null) {
             DatabaseManager.saveToDB(c.getAccount());
             c.setAccount(null);
         }
-        //String[] bgs = new String[]{"Adventure", "adventurePathfinder"};
-        String[] bgs = new String[]{"adele"};
+
+        String[] bgs = new String[]{ "adele" };
+
         c.write(MapLoadable.setMapTaggedObjectVisisble(Collections.singleton(
                 new MapTaggedObject(String.format("%s", Util.getRandomFromCollection(bgs)), true)
         )));
+
         for (World world : Server.getInstance().getWorlds()) {
             c.write(Login.sendWorldInformation(world, null));
         }
+
         c.write(Login.sendWorldInformationEnd());
         c.write(Login.sendRecommendWorldMessage(ServerConfig.WORLD_ID, ServerConfig.RECOMMEND_MSG));
     }

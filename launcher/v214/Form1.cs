@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Swordie;
+using System.Security.Cryptography;
 
 namespace SwordieLauncher
 {
@@ -160,24 +162,69 @@ namespace SwordieLauncher
             return 0;
         }
 
-
-
         async Task<bool> LaunchMapleAsync()
         {
-            STARTUPINFO si = new STARTUPINFO();
-            PROCESS_INFORMATION pi = new PROCESS_INFORMATION();
+            string username = this.usernameTextBox.Text;
+            string password = this.passwordTextBox.Text;
 
-            string text1 = this.usernameTextBox.Text;
-            string text2 = this.passwordTextBox.Text;
             this.passwordTextBox.Clear();
 
-            string token = await this.GetToken(text1, text2);
-            bool flag = !token.Equals("");
+            string token = await this.GetToken(username, password);
 
+            bool flag = !token.Equals("");
             if (flag)
             {
+                /**
+                 * We've paased the log-in check.
+                 * Get all .wz files so that we can perform checksum on them.
+                 * Compare the returned checksum to the expected checksum that we'll get from the server.
+                 *
+                 * If every checksum matches, we can be pretty confident that no .wz editing happened.
+                 * If any checksum doesn't match, throw an error and don't launch.
+                 *
+                 * We ignore some .wz files that shouldn't matter if they get edited in order to improve how long it takes to perform all checksums.
+                 */
+                string[] wz_files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.wz", SearchOption.TopDirectoryOnly);
+                if ( wz_files.Length != 26 ) {
+                    MessageBox.Show("Unable to find the client's required .wz files.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return false;
+                }
+
+                using ( var md5 = System.Security.Cryptography.MD5.Create() )
+                {
+                    string[] wz_ignore = { "Effect", "Sound", "Morph", "Reactor", "String", "TamingMob", "Base" };
+
+                    foreach ( string wz_file in wz_files ) {
+                        if ( wz_ignore.Any(s => wz_file.Contains(s)) )
+                            continue;
+
+                        string[] file_parts = wz_file.Split('\\');
+                        string file_name = file_parts[file_parts.Length - 1];
+                        file_name = file_name.Replace(".wz", "");
+
+                        using ( var stream = new BufferedStream(File.OpenRead(wz_file), 1024000) )
+                        {
+                            var hash = md5.ComputeHash(stream);
+                            var hash_string = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+
+                            byte check_file_checksum = await this.GetFileChecksum(file_name, hash_string);
+                            if ( check_file_checksum.Equals(1) )
+                            {
+                                MessageBox.Show("One or more .wz files failed the integrity check.", "Integrity Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                /**
+                 * Passed all preemptive checks, so we're good to create the process and launch the game.
+                 */
                 try
                 {
+                    STARTUPINFO si = new STARTUPINFO();
+                    PROCESS_INFORMATION pi = new PROCESS_INFORMATION();
+
                     bool bCreateProc = CreateProcess("MapleStory.exe", $" WebStart {token}", IntPtr.Zero, IntPtr.Zero, false, CREATE_SUSPENDED, IntPtr.Zero, null, ref si, out pi);
 
                     if (bCreateProc)
@@ -198,7 +245,7 @@ namespace SwordieLauncher
                 }
                 catch (Exception ex)
                 {
-                    int num = (int)MessageBox.Show("Could not start! Make sure the file is in your game folder and that this program is ran as admin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("Unable to launch Moonlight. Please make sure that the launcher file is in your game folder and that this program is ran with Administator privledges.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
             }
             else
@@ -214,43 +261,21 @@ namespace SwordieLauncher
             LaunchMapleAsync();
         }
 
-        private async Task<bool> authAndStuff()
+        private async Task<byte> GetFileChecksum(string filename, string checksum)
         {
-            string text1 = this.usernameTextBox.Text;
-            string text2 = this.passwordTextBox.Text;
-            this.passwordTextBox.Clear();
+            this.client.Send(OutPackets.FileChecksum(filename, checksum));
 
-            string token = await this.GetToken(text1, text2);
-            bool flag = !token.Equals("");
+            InPacket inPacket = this.client.Receive();
+            inPacket.readInt();
 
-            if (flag)
-            {
-                try
-                {
-                    new Process()
-                    {
-                        StartInfo = {
-                            FileName = "MapleStory.exe",
-                            Arguments = $"WebStart admin"
-                        }
-                    }.Start();
-                }
-                catch (Exception ex)
-                {
-                    int num = (int)MessageBox.Show("Could not start! Make sure the file is in your game folder and that this programming is run as admin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                }
-            }
-            else
-            {
-                int num1 = (int)MessageBox.Show("Invalid username/password combination.");
-            }
+            int num = (int)inPacket.readShort();
 
-            return flag;
+            return inPacket.readByte();
         }
 
-        private async Task<string> GetToken(string username, string pwd)
+        private async Task<string> GetToken(string username, string password)
         {
-            this.client.Send(OutPackets.AuthRequest(username, pwd));
+            this.client.Send(OutPackets.AuthRequest(username, password));
             return Handlers.getAuthTokenFromInput(this.client.Receive());
         }
 
@@ -261,7 +286,7 @@ namespace SwordieLauncher
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-		    }
+
+        }
 	  }
 }
