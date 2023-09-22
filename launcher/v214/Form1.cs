@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Swordie;
 using System.Security.Cryptography;
+using Swordie;
 
 namespace SwordieLauncher
 {
@@ -189,6 +189,32 @@ namespace SwordieLauncher
                     MessageBox.Show("Unable to find the client's required .wz files.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return false;
                 }
+
+                string[] wz_ignore = { "Effect", "Sound", "Morph", "Reactor", "String", "TamingMob", "Base" };
+
+                Parallel.ForEach(wz_files, wz_file =>
+                {
+                    if (wz_ignore.Any(s => wz_file.Contains(s)))
+                        continue;
+
+                    string[] file_parts = wz_file.Split('\\');
+                    string file_name = file_parts[file_parts.Length - 1];
+                    file_name = file_name.Replace(".wz", "");
+
+                    using (var md5 = System.Security.Cryptography.MD5.Create())
+                    using (var stream = new BufferedStream(File.OpenRead(wz_file), 1024000))
+                    {
+                        var hash = md5.ComputeHash(stream);
+                        var hash_string = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+
+                        byte check_file_checksum = await this.GetFileChecksum(file_name, hash_string);
+                        if (check_file_checksum.Equals(1))
+                        {
+                            MessageBox.Show("One or more .wz files failed the integrity check.", "Integrity Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            return false;
+                        }
+                    }
+                });
 
                 using ( var md5 = System.Security.Cryptography.MD5.Create() )
                 {
