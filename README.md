@@ -34,23 +34,25 @@ I do not guarantee that this will go anywhere, but I hope that it does!
 
 
 ## Table of Contents
-- [Disclaimer](#disclaimer)
-- [Table of Contents](#table-of-contents)
 - [Environment Variables](#environment-variables)
-- [Server Source Code](#server-source-code)
-- [Auth Hook Source Code](#auth-hook-source-code)
-- [Launcher Source Code](#launcher-source-code)
+- [Source Code Rundown](#source-code-rundown)
+  - [Server Source Code](#server-source-code)
+  - [Auth Hook Source Code](#auth-hook-source-code)
+  - [Launcher Source Code](#launcher-source-code)
+- [Installation](#installation)
+  - [v214 Client Files](#v214-client-files)
 - [Contributing](#contributing)
-  - [General Stance](#general-stance)
+- [Privacy Policy](#privacy-policy)
 - [License](#license)
 
 
 
-## Environment Variables
+# Environment Variables
 Some aspects of the code-base relies on a filled out `.env` file.
 Be sure to look at the `.env.local` file for what a valid example looks like.
 
 
+# Source Code Rundown
 ## Server Source Code
 You can find the source code for the server in the [server](./server) directory.
 > The applicable `dat` and `wz` files are not included.
@@ -61,21 +63,31 @@ You can find the source code for the server auth hook in the [auth_hook](./auth_
 ## Launcher Source Code
 You can find the source code and applicable README for the custom launcher in the [launcher](./launcher) directory.
 
+# Installation
+## v214 Client Files
+We highly recommend getting all of GMS v214 through Steam via the use of Depot Downloader.
 
+1. Open the [Steam console](steam://nav/console)
+2. Run `download_depot 216150 216151 976750626611673486`
+3. Wait until the download has finished
 
-## Contributing
-### General Stance
-In general, we welcome pull requests that fix bugs or builds upon an existing feature.
-
-1. Fork the Project
-2. Create your Feature Branch (``git checkout -b feature/feature-name``)
-3. Commit your Changes (``git commit -m 'Add some feature-name'``)
-4. Push to the Branch (``git push origin feature/feature-name``)
-5. Open a Pull Request
+> If this method does not work for you due to being outside of North America, there should be publicly available Mega.nz download links out there.
 
 
 
-## License
+# Contributing
+See our [Contributing](.github/contributing.md) standards for information on contributing to development.
+
+
+
+# Privacy Policy
+In Moonlight, information is kept between you and our server and all sensitive information is encrypted.
+
+For more information, see our [Privacy Policy](./github/PRIVACY.md).
+
+
+
+# License
 This project is licensed under GNU GPL 3.
 
 For more information about the license, check out the [LICENSE](LICENSE).

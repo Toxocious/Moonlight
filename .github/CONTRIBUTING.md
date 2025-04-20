@@ -39,7 +39,7 @@ We highly recommend getting all of GMS v214 through Steam via the use of Depot D
 
 1. Open the [Steam console](steam://nav/console)
 2. Run `download_depot 216150 216151 976750626611673486`
-3. Wait until it downloads all 16 GB
+3. Wait until the download has finished
 
 > If this method does not work for you due to being outside of North America, there should be publicly available Mega.nz download links out there.
 
