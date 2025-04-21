@@ -27,26 +27,41 @@ public class ApiRequestHandler {
   private static final Logger log = Logger.getLogger(ApiRequestHandler.class);
   private static final int TOKEN_LENGTH = 50;
 
-  private static final Map<String, String> expected_checksums =
-      new HashMap<String, String>() {
+  private static final Map<String, Tuple<String, Integer>> expected_checksums =
+      new HashMap<String, Tuple<String, Integer>>() {
         {
-          put("Character", "80a5dbda09f0d4c2deef483a43357f6a");
-          put("Data", "8a2f0c581fe80acbb475de0fa957acf5");
-          put("Etc", "97505eb28654e6f79a331e3032b6a27a");
-          put("Item", "0734c1003e859c0dadd3ed9b6a4ac422");
-          put("Map", "cb7218f83d02cafb2a4de3b2102a97cd");
-          put("Map001", "90c727a20bb855aa8b08c8c8e657037c");
-          put("Map002", "fe041aee6c9af90ae4c6f6bd14a7ef27");
-          put("Map2", "f0cc8c815d1592462a8575be2bd8627d");
-          put("Mob", "17669211382353a375128ffee9844501");
-          put("Mob001", "d858a2f98196cf0d189ce0fcf9da1a6c");
-          put("Mob2", "15195ab866e521a4a05826499ce63abb");
-          put("Npc", "e7cbc8e27e60b5cea3747601650654f3");
-          put("Quest", "9f3f6e97811895916b2aed45740ff1bf");
-          put("Skill", "3561c2d424d797543b5fe6db22adb513");
-          put("Skill001", "6e379f832193365d7d9f8df9541974ed");
-          put("Skill002", "5b24f097af12103079cf53e818dd937e");
-          put("UI", "eaefc622a93956fc8b99a3011241794a");
+          // put ("filename", new Tuple<>(checksum, file_size));
+          put("Character",
+              new Tuple<>("0c3a2d111090491a64fdf5e142bdbdaa", 1341660164));
+          put("Etc",
+              new Tuple<>("d7539df859344568b686fbb760df70d6", 214681713));
+          put("Item",
+              new Tuple<>("6123e13d6ff116f2bac4121116296165", 388819460));
+          put("Map",
+              new Tuple<>("782a0930234120c0bee5d23bc3ed173d", 1473380548));
+          put("Map001",
+              new Tuple<>("720e14ca2f3098a4964169bee432fa66", 872969929));
+          put("Map002",
+              new Tuple<>("ca4c6ede1af51d149c34f60926f4d0a7", 690729962));
+          put("Map2",
+              new Tuple<>("146bef286693cd7c34b5d76d45905cbf", 861081084));
+          put("Mob",
+              new Tuple<>("3c3f96fae7af021cbc392102d80d2470", 1839555194));
+          put("Mob001",
+              new Tuple<>("06947fac99bd520c47d1d5affae2116f", 386513100));
+          put("Mob2",
+              new Tuple<>("2e390f74d7745b99de1fa321cf29d75c", 1006464994));
+          put("Npc",
+              new Tuple<>("830bc0721f4ad0547c5020e9845e58e2", 901711815));
+          put("Quest",
+              new Tuple<>("f3c70c00630e254aff0ee5bfd1d5e91e", 23147121));
+          put("Skill",
+              new Tuple<>("98a41d8eb1990aedfd7d35a7434f2715", 1057756523));
+          put("Skill001",
+              new Tuple<>("a246edf3a279895f9dc497808d63d96d", 1663688499));
+          put("Skill002",
+              new Tuple<>("95ecc4ae0437e80eb5619c0db5e46a8f", 462731503));
+          put("UI", new Tuple<>("0b50cddf55e772f21c40016a4dfc0c9f", 488263570));
         }
       };
 
@@ -129,11 +144,20 @@ public class ApiRequestHandler {
     String received_checksum = inPacket.decodeString();
     int received_file_size = inPacket.decodeInt();
 
-    FileChecksumResult fcr = expected_checksums.get(received_filename)
-                                     .toString()
-                                     .equals(received_checksum)
-                                 ? FileChecksumResult.Success
-                                 : FileChecksumResult.Failure;
+    FileChecksumResult fcr = FileChecksumResult.Failure;
+
+    Tuple<String, Integer> expectedValues =
+        expected_checksums.get(received_filename);
+
+    if (expectedValues != null) {
+      String expectedChecksum = expectedValues.getLeft();
+      int expectedFileSize = expectedValues.getRight();
+
+      if (expectedChecksum.equals(received_checksum) &&
+          expectedFileSize == received_file_size) {
+        fcr = FileChecksumResult.Success;
+      }
+    }
 
     c.write(ApiResponse.checkFileChecksumResult(fcr));
   }

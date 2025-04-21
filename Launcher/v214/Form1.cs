@@ -211,11 +211,11 @@ namespace MoonlightLauncher
             }
 
             string hashString = BitConverter.ToString(partialHash).Replace("-", "").ToLowerInvariant();
+
             byte checkFileChecksum = await this.GetFileChecksum(fileName, hashString, fileSize);
 
             if (checkFileChecksum.Equals(1))
             {
-                // MessageBox.Show($"File {fileName} failed the integrity check.", "Integrity Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 MessageBox.Show("One or more .wz files failed the integrity check.", "Integrity Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
@@ -248,9 +248,8 @@ namespace MoonlightLauncher
             string[] wz_ignore = { "Effect", "Sound", "Morph", "Reactor", "String", "TamingMob", "Base" };
 
             // Get all .wz files.
-            // We expect there to be 26 of them.
             string[] wz_files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.wz", SearchOption.TopDirectoryOnly);
-            if ( wz_files.Length != 26 ) {
+            if ( wz_files.Length != 25 ) {
                 MessageBox.Show("Unable to find the client's required .wz files.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
@@ -307,119 +306,7 @@ namespace MoonlightLauncher
                 MessageBox.Show("Unable to launch Moonlight. Please make sure that the launcher file is in your game folder and that this program is ran with Administator privledges.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
 
-
-            /**
-             * !!! original implementation below
-             */
-
-            // if (flag)
-            // {
-            //     /**
-            //      * We've paased the log-in check.
-            //      * Get all .wz files so that we can perform checksum on them.
-            //      * Compare the returned checksum to the expected checksum that we'll get from the server.
-            //      *
-            //      * If every checksum matches, we can be pretty confident that no .wz editing happened.
-            //      * If any checksum doesn't match, throw an error and don't launch.
-            //      *
-            //      * We ignore some .wz files that shouldn't matter if they get edited in order to improve how long it takes to perform all checksums.
-            //      */
-            //     string[] wz_files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.wz", SearchOption.TopDirectoryOnly);
-            //     if ( wz_files.Length != 26 ) {
-            //         MessageBox.Show("Unable to find the client's required .wz files.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //         return false;
-            //     }
-
-            //     string[] wz_ignore = { "Effect", "Sound", "Morph", "Reactor", "String", "TamingMob", "Base" };
-
-            //     Parallel.ForEach(wz_files, wz_file =>
-            //     {
-            //         if (wz_ignore.Any(s => wz_file.Contains(s)))
-            //             continue;
-
-            //         string[] file_parts = wz_file.Split('\\');
-            //         string file_name = file_parts[file_parts.Length - 1];
-            //         file_name = file_name.Replace(".wz", "");
-
-            //         using (var md5 = System.Security.Cryptography.MD5.Create())
-            //         using (var stream = new BufferedStream(File.OpenRead(wz_file), 1024000))
-            //         {
-            //             var hash = md5.ComputeHash(stream);
-            //             var hash_string = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-
-            //             byte check_file_checksum = await this.GetFileChecksum(file_name, hash_string);
-            //             if (check_file_checksum.Equals(1))
-            //             {
-            //                 MessageBox.Show("One or more .wz files failed the integrity check.", "Integrity Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //                 return false;
-            //             }
-            //         }
-            //     });
-
-            //     using ( var md5 = System.Security.Cryptography.MD5.Create() )
-            //     {
-            //         string[] wz_ignore = { "Effect", "Sound", "Morph", "Reactor", "String", "TamingMob", "Base" };
-
-            //         foreach ( string wz_file in wz_files ) {
-            //             if ( wz_ignore.Any(s => wz_file.Contains(s)) )
-            //                 continue;
-
-            //             string[] file_parts = wz_file.Split('\\');
-            //             string file_name = file_parts[file_parts.Length - 1];
-            //             file_name = file_name.Replace(".wz", "");
-
-            //             using ( var stream = new BufferedStream(File.OpenRead(wz_file), 1024000) )
-            //             {
-            //                 var hash = md5.ComputeHash(stream);
-            //                 var hash_string = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-
-            //                 byte check_file_checksum = await this.GetFileChecksum(file_name, hash_string);
-            //                 if ( check_file_checksum.Equals(1) )
-            //                 {
-            //                     MessageBox.Show("One or more .wz files failed the integrity check.", "Integrity Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //                     return false;
-            //                 }
-            //             }
-            //         }
-            //     }
-
-            //     /**
-            //      * Passed all preemptive checks, so we're good to create the process and launch the game.
-            //      */
-            //     try
-            //     {
-            //         STARTUPINFO si = new STARTUPINFO();
-            //         PROCESS_INFORMATION pi = new PROCESS_INFORMATION();
-
-            //         bool bCreateProc = CreateProcess("MapleStory.exe", $" WebStart {token}", IntPtr.Zero, IntPtr.Zero, false, CREATE_SUSPENDED, IntPtr.Zero, null, ref si, out pi);
-
-            //         if (bCreateProc)
-            //         {
-            //             int bInject = Inject("MapleStory", sDllPath);
-            //             if (bInject == 0)
-            //             {
-            //                 ResumeThread(pi.hThread);
-
-            //                 CloseHandle(pi.hThread);
-            //                 CloseHandle(pi.hProcess);
-            //             }
-            //             else
-            //             {
-            //                 MessageBox.Show("Error code: " + bInject.ToString());
-            //             }
-            //         }
-            //     }
-            //     catch (Exception ex)
-            //     {
-            //         MessageBox.Show("Unable to launch Moonlight. Please make sure that the launcher file is in your game folder and that this program is ran with Administator privledges.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //     }
-            // }
-            // else
-            // {
-            //     int num1 = (int)MessageBox.Show("Invalid username/password combination.");
-            // }
-
-            return flag;
+            return true;
         }
 
         public void Run()
