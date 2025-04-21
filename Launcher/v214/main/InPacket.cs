@@ -2,7 +2,7 @@
 using System;
 using System.Text;
 
-namespace Swordie
+namespace Moonlight
 {
     public class InPacket
     {
@@ -41,6 +41,20 @@ namespace Swordie
         {
             int num = (int)this.bufData[this.readPtr] + ((int)this.bufData[this.readPtr + 1] << 8) + ((int)this.bufData[this.readPtr + 2] << 16) + ((int)this.bufData[this.readPtr + 3] << 24);
             this.readPtr += 4;
+            return num;
+        }
+
+        public long readLong()
+        {
+            long num = (long)this.bufData[this.readPtr]
+                    | ((long)this.bufData[this.readPtr + 1] << 8)
+                    | ((long)this.bufData[this.readPtr + 2] << 16)
+                    | ((long)this.bufData[this.readPtr + 3] << 24)
+                    | ((long)this.bufData[this.readPtr + 4] << 32)
+                    | ((long)this.bufData[this.readPtr + 5] << 40)
+                    | ((long)this.bufData[this.readPtr + 6] << 48)
+                    | ((long)this.bufData[this.readPtr + 7] << 56);
+            this.readPtr += 8;
             return num;
         }
 

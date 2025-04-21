@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Swordie
+namespace Moonlight
 {
     internal class Handlers
     {

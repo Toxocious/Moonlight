@@ -1,5 +1,4 @@
-﻿using Swordie;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,8 +8,9 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Moonlight;
 
-namespace SwordieLauncher
+namespace MoonlightLauncher
 {
     public partial class Form2 : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace SwordieLauncher
+﻿namespace MoonlightLauncher
 {
     partial class Form1
     {
@@ -36,9 +36,9 @@
 			this.loginButton = new System.Windows.Forms.Button();
 			this.createAccountButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
+			//
 			// usernameTextBox
-			// 
+			//
 			this.usernameTextBox.AcceptsTab = true;
 			this.usernameTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -51,9 +51,9 @@
 			this.usernameTextBox.Name = "usernameTextBox";
 			this.usernameTextBox.Size = new System.Drawing.Size(200, 20);
 			this.usernameTextBox.TabIndex = 0;
-			// 
+			//
 			// usernameLabel
-			// 
+			//
 			this.usernameLabel.AutoSize = true;
 			this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
 			this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -62,9 +62,9 @@
 			this.usernameLabel.Size = new System.Drawing.Size(70, 16);
 			this.usernameLabel.TabIndex = 1;
 			this.usernameLabel.Text = "Username";
-			// 
+			//
 			// passwordLabel
-			// 
+			//
 			this.passwordLabel.AutoSize = true;
 			this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
 			this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -73,9 +73,9 @@
 			this.passwordLabel.Size = new System.Drawing.Size(67, 16);
 			this.passwordLabel.TabIndex = 2;
 			this.passwordLabel.Text = "Password";
-			// 
+			//
 			// passwordTextBox
-			// 
+			//
 			this.passwordTextBox.AcceptsTab = true;
 			this.passwordTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -86,9 +86,9 @@
 			this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
 			this.passwordTextBox.TabIndex = 3;
 			this.passwordTextBox.UseSystemPasswordChar = true;
-			// 
+			//
 			// loginButton
-			// 
+			//
 			this.loginButton.BackColor = System.Drawing.Color.Transparent;
 			this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.loginButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -99,9 +99,9 @@
 			this.loginButton.Text = "Login";
 			this.loginButton.UseVisualStyleBackColor = false;
 			this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
-			// 
+			//
 			// createAccountButton
-			// 
+			//
 			this.createAccountButton.BackColor = System.Drawing.Color.Transparent;
 			this.createAccountButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.createAccountButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -112,9 +112,9 @@
 			this.createAccountButton.Text = "Register";
 			this.createAccountButton.UseVisualStyleBackColor = false;
 			this.createAccountButton.Click += new System.EventHandler(this.CreateAccountButton_Click);
-			// 
+			//
 			// Form1
-			// 
+			//
 			this.AcceptButton = this.loginButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

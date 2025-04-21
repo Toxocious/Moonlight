@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "v214 Launcher", "v214\Launcher.csproj", "{0715EBE5-503C-4ADE-A64A-7B94477409E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlight v214 Launcher", "v214\Launcher.csproj", "{0715EBE5-503C-4ADE-A64A-7B94477409E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

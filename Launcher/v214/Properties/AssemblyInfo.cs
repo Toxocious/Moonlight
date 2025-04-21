@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Moonlight Launcher (v214)")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Official launcher for Moonlight v214")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Moonlight Launcher (v214)")]

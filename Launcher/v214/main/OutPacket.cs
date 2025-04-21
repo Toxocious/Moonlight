@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Swordie
+namespace Moonlight
 {
     public class OutPacket
     {
@@ -16,8 +16,8 @@ namespace Swordie
         {
             this.Write(new byte[2]
             {
-        (byte) s,
-        (byte) ((uint) s >> 8)
+                (byte) s,
+                (byte) ((uint) s >> 8)
             });
         }
 
@@ -30,10 +30,25 @@ namespace Swordie
         {
             this.Write(new byte[4]
             {
-        (byte) i,
-        (byte) (i >> 8),
-        (byte) (i >> 16),
-        (byte) (i >> 24)
+                (byte) i,
+                (byte) (i >> 8),
+                (byte) (i >> 16),
+                (byte) (i >> 24)
+            });
+        }
+
+        public void WriteLong(long l)
+        {
+            this.Write(new byte[8]
+            {
+                (byte) l,
+                (byte) (l >> 8),
+                (byte) (l >> 16),
+                (byte) (l >> 24),
+                (byte) (l >> 32),
+                (byte) (l >> 40),
+                (byte) (l >> 48),
+                (byte) (l >> 56)
             });
         }
 

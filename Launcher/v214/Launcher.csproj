@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0715EBE5-503C-4ADE-A64A-7B94477409E9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>v214</RootNamespace>
-    <AssemblyName>v214</AssemblyName>
+    <RootNamespace>Moonlight v214 Launcher</RootNamespace>
+    <AssemblyName>Moonlight v214 Launcher</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

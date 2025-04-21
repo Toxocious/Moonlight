@@ -2,8 +2,9 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Windows.Forms;
 
-namespace Swordie
+namespace Moonlight
 {
     public class Client
     {
@@ -18,7 +19,7 @@ namespace Swordie
         // Server Port
         private readonly int PORT = 8483;
 
-        public void Connect()
+        public bool Connect()
         {
             try
             {
@@ -26,11 +27,30 @@ namespace Swordie
                 IPEndPoint ipEndPoint = new IPEndPoint(address, this.PORT);
                 this.socket = new Socket(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 this.socket.BeginConnect((EndPoint)ipEndPoint, new AsyncCallback(this.ConnectCallback), (object)this.socket);
-                Client.connectDone.WaitOne();
+                bool connected = Client.connectDone.WaitOne();
+
+                if (!connected)
+                {
+                    MessageBox.Show("Unable to connect to the server. The server may be down or unreachable.",
+                                    "Connection Failed",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return false;
+                }
+
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+
+                // Show error message in a MessageBox
+                MessageBox.Show($"Connection error: {ex.Message}",
+                                "Connection Failed",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+
+                return false;
             }
         }
 
@@ -46,28 +66,36 @@ namespace Swordie
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                Client.connectDone.Set();
             }
         }
 
         public void Send(OutPacket outPacket)
         {
             int len = outPacket.len;
+
             byte[] numArray = new byte[4]
             {
-        (byte) 0,
-        (byte) 0,
-        (byte) 0,
-        (byte) len
+                (byte) 0,
+                (byte) 0,
+                (byte) 0,
+                (byte) len
             };
+
             numArray[2] = (byte)(len >> 8);
             numArray[1] = (byte)(len >> 16);
             numArray[0] = (byte)(len >> 24);
+
             byte[] buffer = new byte[4 + len];
+
             for (int index = 0; index < numArray.Length; ++index)
                 buffer[index] = numArray[index];
+
             for (int length = numArray.Length; length < len + 4; ++length)
                 buffer[length] = outPacket.buf[length - 4];
+
             this.socket.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(this.SendCallback), (object)this.socket);
+
             Client.sendDone.WaitOne();
         }
 
@@ -90,14 +118,17 @@ namespace Swordie
             {
                 InPacket inPacket = new InPacket();
                 this.socket.BeginReceive(inPacket.buf, 0, 256, SocketFlags.None, new AsyncCallback(this.ReceiveCallback), (object)inPacket);
+
                 while (inPacket.len == -1)
                     Client.receiveDone.WaitOne();
+
                 return inPacket;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
+
             return (InPacket)null;
         }
 

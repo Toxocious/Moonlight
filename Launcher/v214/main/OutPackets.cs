@@ -1,5 +1,5 @@
 ﻿
-namespace Swordie
+namespace Moonlight
 {
     internal class OutPackets
     {
@@ -31,12 +31,14 @@ namespace Swordie
 
         public static OutPacket FileChecksum(
             string filename,
-            string checksum
+            string checksum,
+            long fileSize
         )
         {
             OutPacket outPacket = new OutPacket((short) 102);
             outPacket.WriteString(filename);
             outPacket.WriteString(checksum);
+            outPacket.WriteLong(fileSize);
 
             return outPacket;
         }

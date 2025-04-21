@@ -1,4 +1,4 @@
-﻿namespace SwordieLauncher
+﻿namespace MoonlightLauncher
 {
     partial class Form2
     {
@@ -40,9 +40,9 @@
 			this.passwordInfoLabel = new System.Windows.Forms.Label();
 			this.emailInfoLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
-			// 
+			//
 			// usernameTextBox
-			// 
+			//
 			this.usernameTextBox.AcceptsTab = true;
 			this.usernameTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -54,9 +54,9 @@
 			this.usernameTextBox.Name = "usernameTextBox";
 			this.usernameTextBox.Size = new System.Drawing.Size(200, 20);
 			this.usernameTextBox.TabIndex = 0;
-			// 
+			//
 			// passwordTextBox
-			// 
+			//
 			this.passwordTextBox.AcceptsTab = true;
 			this.passwordTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -67,9 +67,9 @@
 			this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
 			this.passwordTextBox.TabIndex = 1;
 			this.passwordTextBox.UseSystemPasswordChar = true;
-			// 
+			//
 			// emailTextBox
-			// 
+			//
 			this.emailTextBox.AcceptsReturn = true;
 			this.emailTextBox.AcceptsTab = true;
 			this.emailTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -80,9 +80,9 @@
 			this.emailTextBox.Name = "emailTextBox";
 			this.emailTextBox.Size = new System.Drawing.Size(200, 20);
 			this.emailTextBox.TabIndex = 2;
-			// 
+			//
 			// usernameLabel
-			// 
+			//
 			this.usernameLabel.AutoSize = true;
 			this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
 			this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,9 +93,9 @@
 			this.usernameLabel.TabIndex = 3;
 			this.usernameLabel.Text = "Username";
 			this.usernameLabel.Click += new System.EventHandler(this.Label1_Click);
-			// 
+			//
 			// passwordLabel
-			// 
+			//
 			this.passwordLabel.AutoSize = true;
 			this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
 			this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,9 +105,9 @@
 			this.passwordLabel.Size = new System.Drawing.Size(67, 16);
 			this.passwordLabel.TabIndex = 4;
 			this.passwordLabel.Text = "Password";
-			// 
+			//
 			// emailLabel
-			// 
+			//
 			this.emailLabel.AutoSize = true;
 			this.emailLabel.BackColor = System.Drawing.Color.Transparent;
 			this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,9 +117,9 @@
 			this.emailLabel.Size = new System.Drawing.Size(41, 16);
 			this.emailLabel.TabIndex = 5;
 			this.emailLabel.Text = "Email";
-			// 
+			//
 			// createButton
-			// 
+			//
 			this.createButton.BackColor = System.Drawing.Color.Transparent;
 			this.createButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.createButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -130,9 +130,9 @@
 			this.createButton.Text = "Create Account";
 			this.createButton.UseVisualStyleBackColor = false;
 			this.createButton.Click += new System.EventHandler(this.CreateButton_Click);
-			// 
+			//
 			// usernameInfoLabel
-			// 
+			//
 			this.usernameInfoLabel.AutoSize = true;
 			this.usernameInfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.usernameInfoLabel.Location = new System.Drawing.Point(12, 41);
@@ -140,27 +140,27 @@
 			this.usernameInfoLabel.Size = new System.Drawing.Size(0, 13);
 			this.usernameInfoLabel.TabIndex = 7;
 			this.usernameInfoLabel.Click += new System.EventHandler(this.Label1_Click_1);
-			// 
+			//
 			// passwordInfoLabel
-			// 
+			//
 			this.passwordInfoLabel.AutoSize = true;
 			this.passwordInfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.passwordInfoLabel.Location = new System.Drawing.Point(12, 93);
 			this.passwordInfoLabel.Name = "passwordInfoLabel";
 			this.passwordInfoLabel.Size = new System.Drawing.Size(0, 13);
 			this.passwordInfoLabel.TabIndex = 8;
-			// 
+			//
 			// emailInfoLabel
-			// 
+			//
 			this.emailInfoLabel.AutoSize = true;
 			this.emailInfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.emailInfoLabel.Location = new System.Drawing.Point(12, 145);
 			this.emailInfoLabel.Name = "emailInfoLabel";
 			this.emailInfoLabel.Size = new System.Drawing.Size(0, 13);
 			this.emailInfoLabel.TabIndex = 9;
-			// 
+			//
 			// Form2
-			// 
+			//
 			this.AcceptButton = this.createButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
