@@ -25,11 +25,7 @@
 
 
 ## Disclaimer
-I'm extremely interested in learning about the development of private servers, including client edits, wz editing, and server-sided security to deter hackers and client/wz editors.
-
-I do not guarantee that this will go anywhere, but I hope that it does!
-
-> 'Moonlight' is a temporary working name for this project, which is due to change later on down the line.
+I do not guarantee that this will make any substantial progress. Use at your own peril.
 
 
 
@@ -40,7 +36,10 @@ I do not guarantee that this will go anywhere, but I hope that it does!
   - [Auth Hook Source Code](#auth-hook-source-code)
   - [Launcher Source Code](#launcher-source-code)
 - [Installation](#installation)
+  - [Requirements](#requirements)
   - [v214 Client Files](#v214-client-files)
+  - [Server WZ Files](#server-wz-files)
+  - [Start The Server](#start-the-server)
 - [Contributing](#contributing)
 - [Privacy Policy](#privacy-policy)
 - [License](#license)
@@ -64,6 +63,10 @@ You can find the source code for the server auth hook in the [auth_hook](./auth_
 You can find the source code and applicable README for the custom launcher in the [launcher](./launcher) directory.
 
 # Installation
+## Requirements
+The server and its database are hosted in Docker containers, so you will need [Docker](https://www.docker.com/) installed on your machine.
+> For Windows users, do be sure to pick up Docker Desktop and not just the Docker daemon.
+
 ## v214 Client Files
 We highly recommend getting all of GMS v214 through Steam via the use of Depot Downloader.
 
@@ -72,6 +75,21 @@ We highly recommend getting all of GMS v214 through Steam via the use of Depot D
 3. Wait until the download has finished
 
 > If this method does not work for you due to being outside of North America, there should be publicly available Mega.nz download links out there.
+
+## Server WZ Files
+Due to the immense file size of dumped WZ files, we do not include them in this repository.
+
+These files are required though, and you should dump them yourself.
+
+1. Download the latest release of [HaRepacker Resurrected](https://github.com/lastbattle/Harepacker-resurrected/releases/)
+2. Using the v214 client files you dumped earlier, open HaRepacker and load all of the client's WZ files
+3. Using HaRepacker, dump all of the WZ files by clicking on Tools -> Export File(s) To -> Private Server XML
+4. Wait until the dump has finished and move the dumped WZ files to Server/wz
+
+## Start The Server
+Once all previous steps have been completed, you may run the server by typing `./start.sh` in your terminal while in this directory.
+
+The first time you start the server, you may have to wait for several minutes as the Docker images and volumes are set-up, as well as for when the server generates all necessary DAT file data.
 
 
 

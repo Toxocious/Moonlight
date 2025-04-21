@@ -127,7 +127,7 @@ public class ApiRequestHandler {
   public static void handleCheckFileChecksum(Client c, InPacket inPacket) {
     String received_filename = inPacket.decodeString();
     String received_checksum = inPacket.decodeString();
-    Int received_file_size = inPacket.decodeInt();
+    int received_file_size = inPacket.decodeInt();
 
     FileChecksumResult fcr = expected_checksums.get(received_filename)
                                      .toString()
