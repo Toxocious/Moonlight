@@ -19,6 +19,9 @@ namespace Moonlight
         // Server Port
         private readonly int PORT = 8483;
 
+        // Is Connected
+        public bool isConnected = false;
+
         public bool Connect()
         {
             try
@@ -37,6 +40,8 @@ namespace Moonlight
                                     MessageBoxIcon.Error);
                     return false;
                 }
+
+                this.isConnected = true;
 
                 return true;
             }

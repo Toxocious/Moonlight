@@ -100,13 +100,12 @@ namespace MoonlightLauncher
             InitializeComponent();
 
             this.client = new Client();
+            this.client.Connect();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            bool connected = this.client.Connect();
-
-            if ( !connected ) {
+            if ( !this.client.isConnected ) {
                 MessageBox.Show("Unable to connect to the server. Please try again later.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
