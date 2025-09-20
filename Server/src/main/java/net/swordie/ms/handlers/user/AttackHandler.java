@@ -2,6 +2,8 @@ package net.swordie.ms.handlers.user;
 
 import net.swordie.ms.client.Client;
 import net.swordie.ms.client.character.Char;
+import net.swordie.ms.client.character.quest.Quest;
+import net.swordie.ms.client.character.quest.QuestManager;
 import net.swordie.ms.client.character.runestones.RuneStone;
 import net.swordie.ms.client.character.skills.ProcessType;
 import net.swordie.ms.client.character.skills.info.AttackInfo;
@@ -20,8 +22,7 @@ import net.swordie.ms.connection.InPacket;
 import net.swordie.ms.connection.packet.*;
 import net.swordie.ms.constants.GameConstants;
 import net.swordie.ms.constants.SkillConstants;
-import net.swordie.ms.enums.ChatType;
-import net.swordie.ms.enums.FieldOption;
+import net.swordie.ms.enums.*;
 import net.swordie.ms.handlers.Handler;
 import net.swordie.ms.handlers.header.InHeader;
 import net.swordie.ms.handlers.header.OutHeader;
@@ -29,12 +30,15 @@ import net.swordie.ms.life.Life;
 import net.swordie.ms.life.Summon;
 import net.swordie.ms.life.mob.Mob;
 import net.swordie.ms.loaders.SkillData;
+import net.swordie.ms.scripts.ScriptType;
 import net.swordie.ms.util.Rect;
 import net.swordie.ms.world.field.Field;
 import net.swordie.ms.world.field.fieldeffect.FieldEffect;
 import org.apache.log4j.Logger;
 
+import javax.script.ScriptException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static net.swordie.ms.enums.ChatType.*;
@@ -58,15 +62,16 @@ public class AttackHandler {
         boolean noCoolTimeAttackHeader =
                 attackInfo.attackHeader == OutHeader.SUMMONED_ATTACK ||     // Summon Attack
                         attackInfo.inHeader == InHeader.USER_AREA_DOT_ATTACK ||
-                        attackInfo.inHeader == InHeader.USER_AFFECTED_AREA_FOR_SCREEN_ATTACK;   ;       // Affected Area Attack
+                        attackInfo.inHeader == InHeader.USER_AFFECTED_AREA_FOR_SCREEN_ATTACK;
+        ;       // Affected Area Attack
         boolean multiAttack = SkillConstants.isMultiAttackCooldownSkill(skillID);
         boolean extraSkills = SkillConstants.isExtraSkill(skillID);
         if (!attackInfo.byUnreliableMemory && !noCoolTimeAttackHeader && !multiAttack && (!SkillConstants.isNoMPConsumeSkill(skillID) && !chr.applyMpCon(attackInfo.skillId, attackInfo.slv))) {
             return;
         }
-        if (SkillConstants.isDelayedCooldownSkill(skillID) ||  attackInfo.byUnreliableMemory || noCoolTimeAttackHeader || multiAttack || chr.hasSkillCDBypass() || (SkillConstants.isKeyDownSkill(skillID) || chr.checkAndSetSkillCooltime(skillID)) || extraSkills) {
+        if (SkillConstants.isDelayedCooldownSkill(skillID) || attackInfo.byUnreliableMemory || noCoolTimeAttackHeader || multiAttack || chr.hasSkillCDBypass() || (SkillConstants.isKeyDownSkill(skillID) || chr.checkAndSetSkillCooltime(skillID)) || extraSkills) {
             int slv = attackInfo.slv;
-             chr.chatMessage(Mob, "SkillID: " + skillID); // removed for now
+            chr.chatMessage(Mob, "SkillID: " + skillID); // removed for now
             Job sourceJobHandler = chr.getJobHandler();
             SkillInfo si = SkillData.getSkillInfoById(skillID);
             if (si != null && si.getExtraSkillInfo().size() > 0) {
@@ -182,6 +187,7 @@ public class AttackHandler {
                 if (mob != null && mob.getHp() <= 0) {
 
                     mob.onKilledByChar(chr);
+                    handleKillMobQuest(chr, mob);
                     // MultiKill +1,  per killed mob
                     multiKillMessage++;
                     mobexp = mob.getForcedMobStat().getExp();
@@ -202,6 +208,50 @@ public class AttackHandler {
             }
         } else {
             chr.chatMessage("This skill is not handled: " + skillID);
+        }
+    }
+
+    private static void handleKillMobQuest(Char chr, Mob mob) {
+        QuestManager qm = chr.getQuestManager();
+
+        int[] listQuests = new int[]{
+                29400 //Veteran Hunter
+        };
+        for (int i = 0; i < listQuests.length; i++) {
+            int qid = listQuests[i];
+            Quest q = qm.getQuestById(qid);
+
+            if (q != null) {
+                if (q.getStatus() != QuestStatus.Started) {
+                    return;
+                }
+
+                String qrValue = q.getQRValue();
+                String[] parts = qrValue.split(";");
+                boolean hasAttributeMobCount = Arrays.stream(parts).anyMatch(p -> p.contains("mobCount="));
+                if (!hasAttributeMobCount) {
+                    System.err.println("Quest " + qid + " does not have the mobCount attribute in the QRValue. Value: " + qrValue);
+                    return;
+                }
+                if (mob.getLevel() >= chr.getLevel()) {
+                    int mobCount = Integer.parseInt(parts[0].split("=")[1]) + (mob.getLevel() >= chr.getLevel() ? 1 : 0);
+                    final int maxMobCount = Integer.parseInt(parts[1].split("=")[1]);
+                    if (mobCount > maxMobCount) {
+                        return;
+                    }
+                    parts[0] = "mobCount=" + mobCount;
+                    StringBuilder newQRValue = new StringBuilder();
+                    for (String part : parts) {
+                        newQRValue.append(part).append(";");
+                    }
+                    newQRValue = new StringBuilder(newQRValue.substring(0, newQRValue.length() - 1));
+                    q.setQrValue(newQRValue.toString());
+
+                    chr.write(UserPacket.progressMessageFont(ProgressMessageFontType.Bold, 16, ProgressMessageColourType.Yellow, 300, String.format("Eliminate monsters: %d/100000 monsters.", mobCount)));
+
+                }
+
+            }
         }
     }
 
@@ -347,7 +397,7 @@ public class AttackHandler {
     }
 
     @Handler(ops = {InHeader.USER_MELEE_ATTACK, InHeader.USER_SHOOT_ATTACK, InHeader.USER_MAGIC_ATTACK,
-            InHeader.USER_NON_TARGET_FORCE_ATOM_ATTACK, InHeader.USER_AREA_DOT_ATTACK,  InHeader.USER_AFFECTED_AREA_FOR_SCREEN_ATTACK})
+            InHeader.USER_NON_TARGET_FORCE_ATOM_ATTACK, InHeader.USER_AREA_DOT_ATTACK, InHeader.USER_AFFECTED_AREA_FOR_SCREEN_ATTACK})
     public static void handleAttack(Char chr, InPacket inPacket, InHeader header) {
         AttackInfo ai = new AttackInfo();
         SkillUseInfo skillUseInfo = new SkillUseInfo();
@@ -429,14 +479,13 @@ public class AttackHandler {
             ai.bySummonedID = inPacket.decodeInt();
         }
 
-        if(skillID == 400051046) {
+        if (skillID == 400051046) {
             inPacket.decodeInt();
         }
 
         if (skillID == 23121011) { // Mercedes Rolling Moonsault skill
             inPacket.decodeInt();
         }
-
 
 
         if (skillID == NightWalker.SHADOW_SPEAR_AA_LARGE) {

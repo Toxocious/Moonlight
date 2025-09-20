@@ -10,29 +10,29 @@ public enum ChatType {
     GroupFriend(3),
     GroupGuild(4),
     GroupAlliance(5),
-    GameDesc(6),
-    Tip(7),
-    Notice(8),
-    Notice2(9),
-    AdminChat(10),
-    SystemNotice(11),
-    SpeakerChannel(12),
-    SpeakerWorld(13),
-    SpeakerWorldGuildSkill(14),
-    ItemSpeaker(15),
-    ItemSpeakerItem(18),
+    GameDesc(6), //Gray text
+    Tip(7), //Yellow text
+    Notice(8), //LightYellow
+    Notice2(9), //Blue text
+    AdminChat(10), //Background white, text black
+    SystemNotice(11),//Background white, text black
+    SpeakerChannel(12), //Background lightblue, text blue
+    SpeakerWorld(13), //Bg pink - text magenta (Like smega)
+    SpeakerWorldGuildSkill(14),//Bg pink - text magenta (Like smega x2)
+    ItemSpeaker(15), // Bg yellow - text black
+    ItemSpeakerItem(18),// Bg yellow - text black
     SpeakerBridge(19),
     SpeakerWorldExPreview(20),
-    Mob(21),
-    Expedition(22),
-    ItemMessage(23),
-    MiracleTime(24),
+    Mob(21),//Yellow text
+    Expedition(22),//Yellow text
+    ItemMessage(23), // BG yellow - text black
+    MiracleTime(24), //Text blue
     LotteryItemSpeaker(25),
     LotteryItemSpeakerWorld(26),
     AvatarMegaphone(27),
     PickupSpeakerWorld(28),
-    WorldName(29),
-    BossArenaNotice(30),
+    WorldName(29), //ligthyellow
+    BossArenaNotice(30), //Text purple
     Claim(31),
     AfreecaTv(32),
     // non kmst from here

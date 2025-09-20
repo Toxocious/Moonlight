@@ -187,6 +187,7 @@ public class PlayerCommands {
             smi.stop(ScriptType.Reactor);
             smi.stop(ScriptType.Quest);
             smi.stop(ScriptType.Item);
+
             chr.dispose();
             if (args[0].equalsIgnoreCase("@save")) {
                 chr.chatMessage("Saved Data and Disposed");
