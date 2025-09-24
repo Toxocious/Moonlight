@@ -4,3 +4,5 @@ sm.warpInstanceOut(450001105, 0)
 # Ride Vehicle Check
 if sm.getnOptionByCTS(CharacterTemporaryStat.RideVehicle) == 1932393: # Paper Boat
     sm.removeCTS(CharacterTemporaryStat.RideVehicle)
+
+sm.dispose()

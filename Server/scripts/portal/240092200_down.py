@@ -4,3 +4,4 @@ elif sm.hasQuestCompleted(31348):
     sm.warp(240092101, 2)
 else:
     sm.warp(240092100, 2)
+sm.dispose()

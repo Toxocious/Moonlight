@@ -4,3 +4,5 @@ elif sm.hasQuestCompleted(34118):
     sm.warpInstanceIn(450001380, 0)
 else:
     sm.chat("I should probably ask Rino what to do.")
+
+sm.dispose()

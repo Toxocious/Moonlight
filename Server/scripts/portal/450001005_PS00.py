@@ -18,3 +18,5 @@ if sm.sendNext("...Alright, here we go..."):
     sm.rideVehicle(1932393)
     sm.progressMessageFont(3, 20, 20, 0, "Use the direction keys to steer the boat.")
     sm.addPopUpSay(KIMA, 6000, "Cross this lake, and you'll arrive at a massive cliff. I don't know what's behind it.", "")
+
+sm.dispose()

@@ -7,3 +7,5 @@ else:
     sm.sendSayOkay("Oh Hey! No no no..\r\n"
                    "You don't want to go in there! That place is full of wasps and really strong ones too.. "
                    "It seems as if they are draining energy from the Mountain.\r\n")
+
+sm.dispose()

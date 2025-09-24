@@ -7,3 +7,5 @@ if sm.hasQuest(32170):
     # Ride Vehicle Check
     if sm.getnOptionByCTS(CharacterTemporaryStat.RideVehicle) == 1930000: # Riena Skiff used in Riena Strait
         sm.removeCTS(CharacterTemporaryStat.RideVehicle)
+
+sm.dispose()
