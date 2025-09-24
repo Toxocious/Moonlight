@@ -1380,8 +1380,15 @@ public class ItemData {
                                 if (value == null) {
                                     continue;
                                 }
-                                value = value.replace("[\r\n]", "").replace("[R8]", "")
-                                        .replace("\\r", "").replace("\\n", "");
+                                value = value
+                                        .replaceAll("[\r\n]", "")
+                                        .replaceAll("[R8]", "")
+                                        .replaceAll("\\r", "")
+                                        .replaceAll("\\n", "")
+                                        .replaceAll(" ", "");
+                                if(value.isEmpty()) {
+                                    continue;
+                                }
                                 switch (name) {
                                     case "count":
                                         iri.setCount(Integer.parseInt(value));
