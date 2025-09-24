@@ -66,6 +66,8 @@ import net.swordie.ms.world.field.fieldeffect.GreyFieldType;
 import net.swordie.ms.world.field.obtacleatom.ObtacleAtomInfo;
 import net.swordie.ms.world.field.obtacleatom.ObtacleInRowInfo;
 import net.swordie.ms.world.field.obtacleatom.ObtacleRadianInfo;
+import net.swordie.ms.world.gach.GachaponManager;
+import net.swordie.ms.world.gach.result.GachaponDlgType;
 import net.swordie.ms.world.shop.NpcShopDlg;
 import org.apache.log4j.LogManager;
 
@@ -1021,6 +1023,13 @@ public class ScriptManagerImpl implements ScriptManager {
         }
     }
 
+    //32240 - explorer book
+    public void setInGameDirectionMode(boolean lockUI, boolean blackFrame, boolean forceMouseOver, boolean unknown) {
+        if (chr != null) {
+            chr.write(UserLocal.setInGameDirectionMode(lockUI, blackFrame, forceMouseOver));
+        }
+    }
+
     public void curNodeEventEnd(boolean enable) {
         setCurNodeEventEnd(enable);
         chr.write(FieldPacket.curNodeEventEnd(enable));
@@ -1831,6 +1840,7 @@ public class ScriptManagerImpl implements ScriptManager {
         Life life = field.getLifeByObjectID(getObjectIDByScriptType(ScriptType.Reactor));
         if (life instanceof Reactor) {
             field.removeLife(life.getObjectId(), false);
+
         }
     }
 
@@ -1846,7 +1856,7 @@ public class ScriptManagerImpl implements ScriptManager {
     @Override
     public boolean hasReactors() {
         Field field = chr.getField();
-        return field.getReactors().size() > 0;
+        return !field.getReactors().isEmpty();
     }
 
     @Override
@@ -2094,10 +2104,11 @@ public class ScriptManagerImpl implements ScriptManager {
 
     /**
      * Give an item which has the expiration time
+     *
      * @param id
-     * @param quantity for stackable items
+     * @param quantity  for stackable items
      * @param fixedDate
-     * @param value if fixedDate is false, set expiration time in minutes, if true, set expiration date in yyyyMMddHHmm or yyyyMMddHH, yyyyMMdd format (eg. 202002011200)
+     * @param value     if fixedDate is false, set expiration time in minutes, if true, set expiration date in yyyyMMddHHmm or yyyyMMddHH, yyyyMMdd format (eg. 202002011200)
      */
     public void giveItemWithExpireDate(int id, int quantity, boolean fixedDate, Object value) {
         Item item = ItemData.getItemDeepCopy(id);
@@ -3172,6 +3183,7 @@ public class ScriptManagerImpl implements ScriptManager {
             chr.write(WvsContext.matrixUpdate(chr.getSortedMatrixRecords(), false, 0, 0));
         }
     }
+
     public void hireTutor(boolean set) {
         chr.hireTutor(set);
     }
@@ -3458,5 +3470,10 @@ public class ScriptManagerImpl implements ScriptManager {
 
     public void printStyle(Cosmetic cosmetic) {
         System.out.printf("id: %d, name: %s", cosmetic.getId(), cosmetic.getName());
+    }
+
+    public void sendGachaponDlg(GachaponDlgType type) {
+        GachaponManager gacha = new GachaponManager();
+        chr.write(gacha.encode(type));
     }
 }
