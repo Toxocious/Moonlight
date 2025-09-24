@@ -10,18 +10,15 @@ import net.swordie.ms.connection.packet.Effect;
 import net.swordie.ms.connection.packet.UserPacket;
 import net.swordie.ms.connection.packet.UserRemote;
 import net.swordie.ms.connection.packet.WvsContext;
-import net.swordie.ms.constants.GameConstants;
 import net.swordie.ms.enums.QuestStatus;
 import net.swordie.ms.life.mob.Mob;
+import net.swordie.ms.loaders.ItemData;
 import net.swordie.ms.loaders.QuestData;
 import net.swordie.ms.loaders.containerclasses.QuestInfo;
 import net.swordie.ms.util.FileTime;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static net.swordie.ms.enums.ChatType.Mob;
@@ -202,10 +199,32 @@ public class QuestManager {
             }
             addQuest(quest);
         }
+
+        List<QuestReward> itemRewardsList = questInfo
+                .getQuestRewards()
+                .stream()
+                //.map()
+                .filter(qr -> !(qr instanceof QuestItemReward) || ((QuestItemReward) qr).getStatus() != 0)
+                .toList();
+
+        for (QuestReward itemReward : itemRewardsList) {
+
+            if (itemReward instanceof QuestItemReward) {
+                QuestItemReward qir = (QuestItemReward) itemReward;
+                if (ItemData.getItemInfoByID(qir.getId()) == null || ItemData.getItemInfoByID(qir.getId()).getInvType() == null) {
+                    continue;
+                }
+                if (!chr.canHold(qir.getId(), qir.getQuantity())) {
+                    chr.chatMessage(Mob, "[Error] Not enough inventory space in " + ItemData.getItemInfoByID(qir.getId()).getInvType().name() + " to complete quest.");
+                    return;
+                }
+            }
+
+        }
+
         quest.setStatus(QuestStatus.Completed);
         quest.setCompletedTime(FileTime.currentTime());
         chr.chatMessage(Mob, "[Info] Completed Quest " + quest.getQRKey());
-//        chr.getAvatarData().getCharacterStat().gainPierce(GameConstants.QUEST_PIERCE);
         chr.getField().broadcastPacket(UserRemote.effect(chr.getId(), Effect.questCompleteEffect()));
         chr.write(UserPacket.effect(Effect.questCompleteEffect()));
         chr.write(WvsContext.questRecordMessage(quest));
