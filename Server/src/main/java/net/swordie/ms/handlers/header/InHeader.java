@@ -512,12 +512,13 @@ public enum InHeader {
     //617
     //618 star event?
     MOD_SPECTRA_ENERGY(625),
+    ARK_SPECTER_STATE(626),
     USER_REVIVE_REQUEST(627),
     GREATER_DARK_SERVANT_SWAP_REQUEST(628),
     //622
     INHUMAN_SPEED_FORCE_ATOM_REQUEST(630),
     //624
-    CRYSTAL_SKILL_REQUEST(633), // v210
+    CRYSTAL_SKILL_REQUEST(633), // v210,
     //626~630
     //627 learned skill list?
     //631
@@ -1253,7 +1254,6 @@ public enum InHeader {
     //1535 AdminAccount (ManagerAccount or GradeCode=1)
 
 
-
     SPAM_60_SEC(-1),
 
     RETRO_LEAVE(-1),
@@ -1296,21 +1296,21 @@ public enum InHeader {
                 USER_MOVE,
                 //  USER_HIT,
                 //  USER_EMOTION,
-                 PASSIVE_SKILL_INFO_UPDATE,
+                PASSIVE_SKILL_INFO_UPDATE,
                 //  USER_CHANGE_STAT_REQUEST,
                 //  SUMMONED_MOVE,
                 SPAM_60_SEC,
-                 USER_TEMPORARY_STAT_UPDATE_REQUEST,
+                USER_TEMPORARY_STAT_UPDATE_REQUEST,
                 // USER_CALC_DAMAGE_STAT_SET_REQUEST,
                 // MOB_APPLY_CTRL,
                 //  USER_REQUEST_INSTANCE_TABLE,
-                  USER_QUEST_REQUEST,
+                USER_QUEST_REQUEST,
                 //  CHECK_LOGIN_AUTH_INFO,
                 NPC_MOVE,
-                  SKILL_PET_MOVE,
+                SKILL_PET_MOVE,
                 //   FAMILIAR_MOVE,
-                   PET_MOVE,
-                  ALIVE_ACK,
+                PET_MOVE,
+                ALIVE_ACK,
                 //  OBSTACLE_ATOM_COLLISION,
                 // USER_COMPLETE_COMBO_KILL_COUNT_CHECK,
                 // USER_COMPLETE_MULTI_KILL_COUNT_CHECK,
@@ -1320,7 +1320,7 @@ public enum InHeader {
                 // MOB_SKILL_DELAY_END,
                 // ANDROID_MOVE,
                 // DRAGON_MOVE,
-                 SERPENT_VORTEX_INCREMENT_REQUEST
+                SERPENT_VORTEX_INCREMENT_REQUEST
                 // MOD_SPECTRA_ENERGY
         );
         return spam.contains(inHeaderByOp);
