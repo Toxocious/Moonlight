@@ -4,6 +4,7 @@ import net.swordie.ms.client.character.Char;
 import net.swordie.ms.connection.Encodable;
 import net.swordie.ms.connection.InPacket;
 import net.swordie.ms.connection.OutPacket;
+import net.swordie.ms.enums.MovementType;
 import net.swordie.ms.life.Life;
 import net.swordie.ms.util.Position;
 import org.apache.log4j.Logger;
@@ -59,7 +60,7 @@ public class MovementInfo implements Encodable {
         outPacket.encodePosition(oldPos);
         outPacket.encodePosition(oldVPos);
         outPacket.encodeByte(movements.size());
-        for(Movement m : movements) {
+        for (Movement m : movements) {
             m.encode(outPacket);
         }
         outPacket.encodeByte(keyPadState);
@@ -73,129 +74,46 @@ public class MovementInfo implements Encodable {
         for (int i = 0; i < size; i++) {
             byte type = inPacket.decodeByte();
             //  System.err.println("move type " + type);
-            switch (type) {
-                case 0:
-                case 8:
-                case 15:
-                case 17:
-                case 19:
-                case 71:
-                case 72:
-                case 73:
-                case 74:
-                case 75:
-                case 76:
-                case 94:
-                    res.add(new MovementNormal(inPacket, type));
-                    break;
-                case 1:
-                case 2:
-                case 18:
-                case 21:
-                case 22:
-                case 24:
-                case 60:
-                case 63:
-                case 64:
-                case 66:
-                case 67:
-                case 68:
-                case 69:
-                case 99:
-                    res.add(new MovementJump(inPacket, type));
-                    break;
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 9:
-                case 10:
-                case 11:
-                case 13:
-                case 26:
-                case 27:
-                case 52:
-                case 53:
-                case 54:
-                case 65:
-                case 83:
-                case 84:
-                case 85:
-                case 87:
-                case 89:
-                case 103:
-                    res.add(new MovementTeleport(inPacket, type));
-                    break;
-                case 12:
-                    res.add(new MovementStatChange(inPacket, type));
-                    break;
-                case 14:
-                case 16:
-                    res.add(new MovementStartFallDown(inPacket, type));
-                    break;
-                case 23:
-                    res.add(new MovementFlyingBlock(inPacket, type));
-                    break;
-                case 29: // new 199
-                    res.add(new MovementNew1(inPacket, type));
-                    break;
-                case 30:
-                case 31:
-                case 32:
-                case 33:
-                case 34:
-                case 35:
-                case 36:
-                case 37:
-                case 38:
-                case 39:
-                case 40:
-                case 41:
-                case 42:
-                case 43:
-                case 44:
-                case 45:
-                case 46:
-                case 47:
-                case 48:
-                case 50:
-                case 51:
-                case 55:
-                case 57:
-                case 58:
-                case 77:
-                case 78:
-                case 79:
-                case 81:
-                case 86:
-                case 88:
-                case 90:
-                case 91:
-                case 92:
-                case 93:
-                case 95:
-                case 96:
-                case 97:
-                case 98:
-                    res.add(new MovementAction(inPacket, type));
-                    break;
-                case 49:
-                    res.add(new MovementOffsetX(inPacket, type));
-                    break;
-                case 56:
-                case 70:
-                case 102:
-                    res.add(new MovementAngle(inPacket, type)); // probably not a good name
-                    break;
-                case 59: // caught in default case
-                case 61: // ?
-                case 62:
-                    res.add(new MovementAction(inPacket, type));
-                    break;
-                default:
-                    log.warn(String.format("Unhandled move path attribute %s. Packet = %s", type, inPacket));
-                    break;
+            MovementType movementType = MovementType.getByVal(type);
+            if (movementType == null) {
+                log.warn(String.format("Unknown movement type %s", type));
+                break;
+            }
+
+
+            switch (movementType) {
+
+                case MOVEMENT_UNK0, MOVEMENT_UNK8, MOVEMENT_UNK15, MOVEMENT_UNK17, MOVEMENT_UNK19,
+                     MOVEMENT_UNK71, MOVEMENT_UNK72, MOVEMENT_UNK73, MOVEMENT_UNK74, MOVEMENT_UNK75,
+                     MOVEMENT_UNK76, MOVEMENT_UNK94 -> res.add(new MovementNormal(inPacket, type));
+                case MOVEMENT_UNK1, MOVEMENT_UNK2, MOVEMENT_UNK18, MOVEMENT_UNK21, MOVEMENT_UNK22,
+                     MOVEMENT_UNK24, MOVEMENT_UNK60, MOVEMENT_UNK63, MOVEMENT_UNK64, MOVEMENT_UNK66,
+                     MOVEMENT_UNK67, MOVEMENT_UNK68, MOVEMENT_UNK69, MOVEMENT_UNK99 ->
+                        res.add(new MovementJump(inPacket, type));
+                case MOVEMENT_UNK3, MOVEMENT_UNK4, MOVEMENT_UNK5, MOVEMENT_UNK6, MOVEMENT_UNK7,
+                     MOVEMENT_UNK9, MOVEMENT_UNK10, MOVEMENT_UNK11, MOVEMENT_UNK13, MOVEMENT_UNK26,
+                     MOVEMENT_UNK27, MOVEMENT_UNK52, MOVEMENT_UNK53, MOVEMENT_UNK54, MOVEMENT_UNK65,
+                     MOVEMENT_UNK83, MOVEMENT_UNK84, MOVEMENT_UNK85, MOVEMENT_UNK87, MOVEMENT_UNK89,
+                     MOVEMENT_TELEPORT -> res.add(new MovementTeleport(inPacket, type));
+                case MOVEMENT_STAT_CHANGE -> res.add(new MovementStatChange(inPacket, type));
+                case MOVEMENT_UNK14, MOVEMENT_UNK16 -> res.add(new MovementStartFallDown(inPacket, type));
+                case MOVEMENT_FLYING_BLOCK -> res.add(new MovementFlyingBlock(inPacket, type));
+                case MOVEMENT_NEW1 -> res.add(new MovementNew1(inPacket, type));
+                case MOVEMENT_UNK30, MOVEMENT_UNK31, MOVEMENT_UNK32, MOVEMENT_UNK33, MOVEMENT_UNK34,
+                     MOVEMENT_UNK35, MOVEMENT_UNK36, MOVEMENT_UNK37, MOVEMENT_UNK38, MOVEMENT_UNK39,
+                     MOVEMENT_UNK40, MOVEMENT_UNK41, MOVEMENT_UNK42, MOVEMENT_UNK43, MOVEMENT_UNK44,
+                     MOVEMENT_UNK45, MOVEMENT_UNK46, MOVEMENT_UNK47, MOVEMENT_UNK48, MOVEMENT_UNK50,
+                     MOVEMENT_UNK51, MOVEMENT_UNK55, MOVEMENT_UNK57, MOVEMENT_UNK58, MOVEMENT_UNK77,
+                     MOVEMENT_UNK78, MOVEMENT_UNK79, MOVEMENT_UNK81, MOVEMENT_UNK86, MOVEMENT_UNK88,
+                     MOVEMENT_UNK90, MOVEMENT_UNK91, MOVEMENT_UNK92, MOVEMENT_UNK93, MOVEMENT_UNK95,
+                     MOVEMENT_UNK96, MOVEMENT_UNK97, MOVEMENT_UNK98 -> res.add(new MovementAction(inPacket, type));
+                case MOVEMENT_UNK49 -> res.add(new MovementOffsetX(inPacket, type));
+                case MOVEMENT_UNK56, MOVEMENT_UNK70, MOVEMENT_ANGLE ->
+                        res.add(new MovementAngle(inPacket, type)); // probably not a good name
+                // caught in default case
+                // ?
+                case MOVEMENT_UNK59, MOVEMENT_UNK61, MOVEMENT_ACTION -> res.add(new MovementAction(inPacket, type));
+                default -> log.warn(String.format("Unhandled move path attribute %s. Packet = %s", type, inPacket));
             }
         }
         return res;

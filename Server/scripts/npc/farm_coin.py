@@ -8,7 +8,7 @@ for equip in chr.getEquippedInventory().getItems():
     for i in range(6):
         opt = equip.getOptions().get(i)
         if opt == 0:
-            sendStr += "<None>"
+            continue
         else:
             tier = opt // 10000
             sendStr += "(" + str(opt) + ") - "

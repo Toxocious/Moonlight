@@ -9,3 +9,5 @@ if sm.hasQuestCompleted(31342) or sm.hasQuest(31342):
 else:
     sm.setSpeakerID(CHINO)
     sm.sendSayOkay("Where do you think you're going buddy? That lift is for me.\r\n\r\n#fs 18##eNO ONE ELSE!")
+
+sm.dispose()

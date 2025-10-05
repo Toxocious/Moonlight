@@ -364,7 +364,7 @@ public class TemporaryStatManager {
             outPacket.encodeInt(o.tOption);
         }
 
-        System.err.println("CTS " + getNewStats().keySet());
+        //System.err.println("CTS " + getNewStats().keySet());
 
         if (hasNewStat(SoulMP)) {
             outPacket.encodeInt(getOption(SoulMP).xOption);

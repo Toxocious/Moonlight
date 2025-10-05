@@ -6,3 +6,5 @@ elif sm.hasQuestCompleted(31348): # Colossal Clean Up 4
 
 else:
     sm.chat("This path is blocked by a mysterious presence.")
+
+sm.dispose()

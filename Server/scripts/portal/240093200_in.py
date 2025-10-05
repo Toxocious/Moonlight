@@ -3,3 +3,5 @@ if sm.checkParty():
         sm.warpInstanceIn(240093310, True)
     elif sm.hasQuestCompleted(31351):
         sm.warpInstanceIn(240093300, True)
+
+sm.dispose()

@@ -1,3 +1,3 @@
-# Created by MechAviv
-# ID :: [4000013]
-# Maple Road : Inside the Small Forest
+#Author: @Manu13
+sm.avatarOriented("UI/tutorial.img/20")
+sm.dispose()
